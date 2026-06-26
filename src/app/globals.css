@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-serif), serif;
+  --font-sans: var(--font-sans), sans-serif;
+  --color-raw-silk: #F9F6F0;
+  --color-charcoal: #1C1A17;
+  --color-sand: #C2B280;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #F9F6F0;
+  --foreground: #1C1A17;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom selection styling for premium look */
+::selection {
+  background-color: #C2B280;
+  color: #1C1A17;
+}
+
+/* Scrollbar styling for high-end feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9F6F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C2B280;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1C1A17;
+}
+
+/* Infinite scrolling marquee keyframes */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle drafted dot grid pattern representing weave sheets */
+.bg-grid-dots {
+  background-image: radial-gradient(rgba(28, 26, 23, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-grid-dots-dark {
+  background-image: radial-gradient(rgba(249, 246, 240, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Glowing CTA Container Animation (TSCG Style with Soft Sand Glow) */
+@keyframes glow-container {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(28, 26, 23, 0.15), 0 0 12px 2px rgba(194, 178, 128, 0.25);
+  }
+  50% {
+    box-shadow: 0 15px 35px rgba(28, 26, 23, 0.25), 0 0 22px 6px rgba(194, 178, 128, 0.55);
+  }
+}
+
+.animate-glow-container {
+  animation: glow-container 3s infinite ease-in-out;
+}
+
+/* Premium Text Animations & Effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Elegant line-reveal animation */
+@keyframes lineReveal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-line-reveal {
+  transform-origin: left;
+  animation: lineReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Premium sliding underline hover effect for links */
+.link-hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-hover-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Subtle luxury text shadows for headlines */
+.text-shadow-premium {
+  text-shadow: 0 4px 12px rgba(28, 26, 23, 0.05);
+}
+
+
+

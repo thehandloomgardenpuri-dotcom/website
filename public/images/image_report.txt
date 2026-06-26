@@ -1,0 +1,25 @@
+WEBP IMAGE CONVERSION SUMMARY REPORT
+====================================
+
+product_1.webp (from IMG-20260616-WA0013.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_2.webp (from IMG-20260616-WA0014.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_3.webp (from IMG-20260616-WA0015.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_4.webp (from IMG-20260616-WA0016.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_5.webp (from IMG-20260616-WA0017.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_6.webp (from IMG-20260616-WA0018.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_7.webp (from IMG-20260616-WA0019.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_8.webp (from IMG-20260616-WA0020.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_9.webp (from IMG-20260616-WA0021.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_10.webp (from IMG-20260616-WA0022.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_11.webp (from IMG-20260616-WA0023.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_12.webp (from IMG-20260616-WA0024.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_13.webp (from IMG-20260616-WA0025.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_14.webp (from IMG-20260616-WA0026.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_15.webp (from IMG-20260616-WA0027.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_16.webp (from IMG-20260616-WA0028.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_17.webp (from IMG-20260616-WA0029.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_18.webp (from IMG-20260616-WA0030.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_19.webp (from IMG-20260616-WA0031.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_20.webp (from IMG-20260616-WA0032.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_21.webp (from IMG-20260616-WA0033.jpg): 1706x2560 | Orientation: portrait | Aspect Ratio: 0.67
+product_22.webp (from WhatsApp Image 2026-06-17 at 12.10.13 PM.jpeg): 1193x1600 | Orientation: portrait | Aspect Ratio: 0.75

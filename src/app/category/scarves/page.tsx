@@ -41,28 +41,29 @@ export default function ScarvesCategoryPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#F9F6F0] text-[#1C1A17] flex flex-col selection:bg-[#C2B280] selection:text-[#1C1A17] bg-grid-dots">
+    <div className="relative min-h-screen bg-cream text-charcoal flex flex-col">
       <Header />
 
-      {/* Page Title Section */}
-      <section className="pt-20 pb-12 px-6 md:px-12 lg:px-24 border-b border-[#1C1A17]/5">
+      {/* Page Title */}
+      <section className="pt-16 pb-10 px-6 md:px-12 lg:px-20 border-b border-charcoal/5">
         <ScrollReveal className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#C2B280] font-bold mb-3 block">
-              OUR COLLECTIONS
+            <span className="text-[10px] uppercase tracking-[0.2em] text-maroon font-bold mb-2 block">
+              Our Collections
             </span>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1C1A17] leading-tight font-normal uppercase">
-              Dupattas, Scarves &amp; <span className="text-[#C2B280] font-medium italic">Stoles</span>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight">
+              Dupattas, Scarves &amp;{" "}
+              <span className="italic text-maroon">Stoles</span>
             </h1>
           </div>
-          <p className="font-sans text-xs md:text-sm text-[#1C1A17]/60 max-w-md leading-relaxed tracking-wide">
-            Beautiful handwoven pieces that add a traditional touch to any outfit. Lightweight, comfortable, and perfect souvenir gifts from Puri.
+          <p className="font-sans text-sm text-charcoal/60 max-w-md leading-relaxed">
+            Beautiful handwoven pieces that add a traditional touch to any outfit. Perfect souvenir gifts from Puri.
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Grid Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 flex-grow">
+      {/* Grid */}
+      <section className="py-16 px-6 md:px-12 lg:px-20 flex-grow">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {scarfProducts.map((product, index) => {
             const encodedText = encodeURIComponent(
@@ -71,50 +72,47 @@ export default function ScarvesCategoryPage() {
             const waLink = `${primaryWhatsAppBase}${encodedText}`;
 
             return (
-              <ScrollReveal key={product.id} delay={(index % 3) * 100} className="flex flex-col group">
-                {/* Visual Frame */}
-                <div className="w-full aspect-[2/3] relative bg-neutral-100 rounded-3xl overflow-hidden mb-6">
+              <ScrollReveal key={product.id} delay={(index % 3) * 100} className="flex flex-col group card-hover">
+                <div className="w-full aspect-[3/4] relative bg-cream-dark rounded-lg overflow-hidden mb-5 img-zoom">
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-cover object-top transform group-hover:scale-103 transition-transform duration-700"
+                    className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute top-4 left-4 bg-[#1C1A17]/70 backdrop-blur-md text-[#F9F6F0] px-3 py-1.5 text-[8px] tracking-widest uppercase font-mono rounded-full">
+                  <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full">
                     {product.id}
                   </div>
                 </div>
 
-                {/* Meta details */}
                 <div className="mb-2">
-                  <span className="font-mono text-[8px] text-[#C2B280] tracking-widest uppercase block mb-1">
+                  <span className="font-sans text-[9px] text-maroon tracking-widest uppercase block mb-1 font-bold">
                     {product.cluster}
                   </span>
-                  <h2 className="font-serif text-lg text-[#1C1A17] font-normal leading-tight group-hover:text-[#C2B280] transition-colors">
+                  <h2 className="font-serif text-lg text-charcoal leading-tight group-hover:text-maroon transition-colors">
                     {product.title}
                   </h2>
                 </div>
 
-                <p className="font-sans text-xs text-[#1C1A17]/70 leading-relaxed tracking-wide mb-4">
+                <p className="font-sans text-xs text-charcoal/60 leading-relaxed mb-3">
                   {product.desc}
                 </p>
 
-                <div className="border-t border-[#1C1A17]/5 pt-3 mb-6 flex justify-between items-center text-[9px] font-mono text-[#1C1A17]/40 tracking-wider">
-                  <span>{product.spec}</span>
+                <div className="border-t border-charcoal/5 pt-3 mb-5 text-[9px] font-sans text-charcoal/40 tracking-wider">
+                  {product.spec}
                 </div>
 
-                {/* WhatsApp Inquiry Link */}
                 <a
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center justify-between border border-[#1C1A17] bg-[#1C1A17] text-[#F9F6F0] hover:bg-[#C2B280] hover:border-[#C2B280] hover:text-[#1C1A17] px-6 py-4 text-[10px] tracking-[0.2em] uppercase font-bold transition-all duration-300 w-full rounded-none"
+                  className="mt-auto btn-maroon justify-center w-full"
                 >
                   <span>Inquire on WhatsApp</span>
-                  <MessageSquare size={12} />
+                  <MessageSquare size={14} />
                 </a>
-                </ScrollReveal>
+              </ScrollReveal>
             );
           })}
         </div>

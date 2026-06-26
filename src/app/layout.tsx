@@ -63,7 +63,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${outfit.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#F9F6F0] text-[#1C1A17] antialiased">
+      <body className="min-h-full flex flex-col font-sans bg-cream text-charcoal antialiased">
         {children}
       </body>
     </html>

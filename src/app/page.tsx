@@ -1,735 +1,740 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Phone,
-  Mail,
-  Compass,
-  Send
-} from "lucide-react";
+import { ArrowRight, Check, MapPin, Phone, Star, Award, Palette, ShoppingBag, Building2, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollReveal from "@/components/ScrollReveal";
-import OrnamentalDivider from "@/components/OrnamentalDivider";
-import LottieAnimation from "@/components/LottieAnimation";
-
-// Inline custom SVGs for Facebook and Instagram to prevent dependency export mismatches
-const FacebookIcon = ({ size = 14, className = "" }) => (
-  <svg
-    viewBox="0 0 24 24"
-    width={size}
-    height={size}
-    stroke="currentColor"
-    strokeWidth="2"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
-const InstagramIcon = ({ size = 14, className = "" }) => (
-  <svg
-    viewBox="0 0 24 24"
-    width={size}
-    height={size}
-    stroke="currentColor"
-    strokeWidth="2"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-  </svg>
-);
+import Parallax from "@/components/Parallax";
 
 export default function HomePage() {
-  // Business Metadata Links & Coordinates
-  const alternateWhatsApp = "https://wa.me/919861900000?text=Hi%20Rajesh,%20I%20have%20an%20enquiry.";
-  const landlineCall = "tel:06752220037";
-  const emailMailto = "mailto:rajeshmullick.puri@gmail.com";
-  const physicalAddress = "Swargadwar Square, Bharath Sevashram Marg, Puri, Odisha";
-
   const categories = [
     {
       title: "Sarees",
       href: "/category/sarees",
       image: "/images/product_1.webp",
-      cluster: "Traditional Silk & Cotton Sarees",
+      description: "Timeless weaves that celebrate Indian heritage.",
     },
     {
-      title: "Dupatta, Stoles & Shawls",
-      href: "/category/scarves",
-      image: "/images/product_2.webp",
-      cluster: "Handwoven Dupattas & Stoles",
-    },
-    {
-      title: "Dress Material",
+      title: "Lehenga",
       href: "/category/dresses",
-      image: "/images/product_3.webp",
-      cluster: "Unstitched Dress Materials",
+      image: "/images/product_6.webp",
+      description: "Graceful lehengas for weddings and celebrations.",
     },
     {
-      title: "Ready-to-Wear & Kurtis",
+      title: "Kurti",
       href: "/category/kurtis",
       image: "/images/product_4.webp",
-      cluster: "Readymade Kurtis & Sets",
+      description: "Elegant kurtis for everyday comfort and style.",
     },
     {
-      title: "Home Décor & Bed Covers",
-      href: "/category/bed-covers",
-      image: "/images/product_5.webp",
-      cluster: "Handspun Cotton Bed Covers",
+      title: "Ethnic Wear",
+      href: "/category/scarves",
+      image: "/images/product_2.webp",
+      description: "Designer ethnic wear for your special occasion.",
     },
   ];
 
-  const masterpieceWeaves = [
+  const whyChooseUs = [
     {
-      title: "Patachitra Painted Silk",
-      origin: "Raghurajpur Village",
-      artisan: "Traditional Artists",
-      duration: "Hand-painted",
-      dyes: "Natural Colors",
-      image: "/images/product_8.webp",
-      description: "Beautiful hand-painted designs showing traditional Indian stories on pure tussar silk. Every saree is painted by hand using natural colors.",
-      presettedText: "Hi Handloom Garden, I am interested in learning more about the Patachitra Painted Silk.",
+      icon: <Award className="w-8 h-8 text-maroon" />,
+      title: "Authentic Handlooms",
+      description: "Pure handloom products crafted by skilled artisans.",
     },
     {
-      title: "Bomkai Silk & Cotton",
-      origin: "Ganjam District",
-      artisan: "Local Weavers",
-      duration: "Handwoven",
-      dyes: "Natural Dyes",
-      image: "/images/product_9.webp",
-      description: "Woven using traditional techniques, featuring bold borders and patterns inspired by local folklore.",
-      presettedText: "Hi Handloom Garden, I am interested in learning more about the Bomkai Silk & Cotton.",
+      icon: <Shield className="w-8 h-8 text-maroon" />,
+      title: "Silk Mark Certified",
+      description: "Certified guarantee of pure silk and quality.",
     },
     {
-      title: "Kotpad Organic Cotton",
-      origin: "Koraput District",
-      artisan: "Tribal Weavers",
-      duration: "Handwoven",
-      dyes: "Natural Root Dyes",
-      image: "/images/product_10.webp",
-      description: "Thick, comfortable organic cotton dyed using natural roots. Woven slowly by local tribal artisans in rich, rustic colors.",
-      presettedText: "Hi Handloom Garden, I am interested in learning more about the Kotpad Organic Cotton.",
+      icon: <Palette className="w-8 h-8 text-maroon" />,
+      title: "Exclusive Designs",
+      description: "Unique and exclusive designs you won't find anywhere else.",
     },
     {
-      title: "Sambalpuri Silk Ikat",
-      origin: "Bargarh District",
-      artisan: "Local Weavers",
-      duration: "Handwoven",
-      dyes: "Natural Dyes",
-      image: "/images/product_11.webp",
-      description: "Beautiful double-ikat silk sarees with matching patterns on both sides. The threads are tied and dyed before weaving to create traditional geometric designs.",
-      presettedText: "Hi Handloom Garden, I am interested in learning more about the Sambalpuri Silk Ikat.",
+      icon: <ShoppingBag className="w-8 h-8 text-maroon" />,
+      title: "Custom Orders",
+      description: "Tailored solutions for weddings and special occasions.",
     },
     {
-      title: "Nuapatna Gita Govinda Silk",
-      origin: "Nuapatna Village",
-      artisan: "Traditional Weavers",
-      duration: "Handwoven",
-      dyes: "Natural Yellow Dyes",
-      image: "/images/product_12.webp",
-      description: "Traditional silk sarees woven with sacred verses from the Gita Govinda, used for temple rituals in Puri.",
-      presettedText: "Hi Handloom Garden, I am interested in learning more about the Nuapatna Gita Govinda Silk.",
+      icon: <Building2 className="w-8 h-8 text-maroon" />,
+      title: "A/C Mega Showroom",
+      description: "Comfortable & luxurious shopping experience.",
+    },
+    {
+      icon: <Star className="w-8 h-8 text-maroon" />,
+      title: "Trusted Heritage",
+      description: "Years of trust, quality and customer delight.",
     },
   ];
 
-  const patronDiaries = [
+  const galleryImages = [
+    "/images/product_11.webp",
+    "/images/product_12.webp",
+    "/images/product_13.webp",
+    "/images/product_14.webp",
+    "/images/product_15.webp",
+  ];
+
+  const testimonials = [
     {
-      image: "/images/product_13.webp",
-      name: "Ananya Mohanty",
-      occasion: "Bridal Handloom Portfolio",
-      quote: "The saree is absolutely beautiful. The fabric is soft, lightweight, and perfect for special occasions.",
+      image: "/images/product_17.webp",
+      name: "Priyanka S., Puri",
+      quote: "The saree collection is just amazing! The quality and such beautiful designs.",
     },
     {
-      image: "/images/product_14.webp",
-      name: "Siddharth & Priyanka",
-      occasion: "Festive Ceremony",
-      quote: "Beautiful handwoven silk saree with traditional designs. Very happy with the quality.",
+      image: "/images/product_18.webp",
+      name: "Amarpreet S., Bhubaneswar",
+      quote: "We got our bridal lehenga from Handloom Garden. Excellent service and stunning collection!",
     },
     {
-      image: "/images/product_15.webp",
-      name: "Devi Archana Prasanna",
-      occasion: "Heritage Gallery Walk",
-      quote: "Great collection of authentic handlooms at reasonable prices. Buying directly supports the weavers.",
+      image: "/images/product_19.webp",
+      name: "Sunali M., Cuttack",
+      quote: "My go-to showroom for ethnic wear. Always a must shopping experience.",
     },
   ];
+
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  useEffect(() => {
+    const target = sessionStorage.getItem("scrollTarget");
+    if (target) {
+      sessionStorage.removeItem("scrollTarget");
+      setTimeout(() => {
+        const el = document.getElementById(target);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 400);
+    }
+  }, []);
 
   return (
-    <div className="relative min-h-screen bg-raw-silk text-charcoal flex flex-col selection:bg-sand selection:text-charcoal bg-grid-dots">
-      
+    <div className="relative min-h-screen bg-cream text-charcoal flex flex-col">
       <Header />
 
-      {/* SECTION 2: EDITORIAL HERO SECTION */}
-      <section id="home" className="relative min-h-[calc(100vh-140px)] flex items-center pt-12 pb-20 px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative">
-          
-          <div className="hidden lg:block absolute top-0 bottom-0 left-[41.6%] w-[1px] bg-charcoal/5 pointer-events-none" />
+      {/* ============================================ */}
+      {/* SECTION 1: HERO */}
+      {/* ============================================ */}
+      <section id="home" className="relative min-h-[85vh] lg:min-h-[90vh] bg-gradient-to-b from-cream to-cream-dark/30 flex items-center overflow-hidden border-b border-maroon/5">
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-maroon/[0.02] blur-3xl -z-10" />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-3xl -z-10" />
 
-          {/* Text block (5 cols) centered and aligned */}
-          <div className="lg:col-span-5 flex flex-col justify-center text-left items-start lg:pr-12 z-10 order-2 lg:order-1 animate-fade-up">
-            <span className="text-[9px] uppercase tracking-[0.25em] text-sand font-bold mb-4">
-              WELCOME TO HANDLOOM GARDEN
-            </span>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal leading-[1.15] mb-6 font-normal text-shadow-premium">
-              Authentic <span className="text-sand font-medium italic">Handloom Sarees</span> &amp; Ethnic Wear in Puri
-            </h1>
-            <p className="font-sans text-xs md:text-sm text-charcoal/70 leading-relaxed tracking-wide mb-8">
-              We welcome you to explore our collection of pure handwoven cottons and silks. Sourced directly from local weavers of Odisha, every design brings you traditional patterns, beautiful colors, and the touch of true craftsmanship.
-            </p>
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-20 py-16 lg:py-24 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <a
-              href="#collections"
-              className="inline-block border-b border-charcoal pb-1 text-[10px] tracking-[0.25em] uppercase font-bold hover:text-sand hover:border-sand transition-colors self-start"
-            >
-              Explore our collections
-            </a>
+            {/* Left Column: Premium content presentation */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              {/* Est. / Location Tag with Lottie Animation */}
+              <div className="flex items-center gap-3 mb-4 animate-fade-up">
+                <svg
+                  viewBox="0 0 100 100"
+                  className="w-8 h-8 md:w-10 md:h-10 text-maroon animate-spin-slow"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* Outer rim */}
+                  <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="2.5" />
+                  <circle cx="50" cy="50" r="41" stroke="currentColor" strokeWidth="1" strokeDasharray="3 2" />
+                  <circle cx="50" cy="50" r="37" stroke="currentColor" strokeWidth="1.5" />
 
-            {/* Weave Specs Sheet Block simplified */}
-            <div className="mt-12 pt-6 border-t border-charcoal/5 grid grid-cols-2 gap-4 w-full">
-              <div>
-                <span className="font-sans text-[8px] uppercase tracking-wider text-charcoal/40 block">LOCAL WEAVES</span>
-                <span className="font-serif text-xs text-charcoal mt-1 block">Sonpur, Nuapatna, Koraput</span>
+                  {/* Hub */}
+                  <circle cx="50" cy="50" r="13" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="50" cy="50" r="8" stroke="currentColor" strokeWidth="1" />
+                  <circle cx="50" cy="50" r="3" fill="currentColor" />
+
+                  {/* 8 Main Spokes */}
+                  <g transform="rotate(0 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(45 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(90 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(135 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(180 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(225 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(270 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(315 50 50)">
+                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+                  </g>
+
+                  {/* 8 Secondary Spokes */}
+                  <g transform="rotate(22.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(67.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(112.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(157.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(202.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(247.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(292.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                  <g transform="rotate(337.5 50 50)">
+                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+                    <circle cx="50" cy="19" r="2" fill="currentColor" />
+                  </g>
+                </svg>
+                <span className="font-sans text-[10px] md:text-xs font-bold tracking-[0.25em] text-maroon uppercase">
+                  ESTD. 1978 • PURI, ODISHA
+                </span>
               </div>
-              <div>
-                <span className="font-sans text-[8px] uppercase tracking-wider text-charcoal/40 block">COLORS</span>
-                <span className="font-serif text-xs text-charcoal mt-1 block">Traditional Natural Dyes</span>
+
+              {/* Title */}
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal leading-[1.15] mb-6 animate-letter-track font-normal">
+                <span className="text-gold-foil font-bold">Elegance</span> <br className="hidden sm:inline" />
+                <span className="italic font-serif text-maroon font-light">
+                  Woven in
+                </span>{" "}
+                <span className="relative inline-block font-serif italic text-gold-foil font-semibold">
+                  Tradition
+                  {/* Subtle underline SVG for the word Tradition */}
+                  <svg className="absolute -bottom-2 left-0 w-full h-2 text-gold-foil/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" strokeWidth="3" />
+                  </svg>
+                </span>
+              </h1>
+
+              {/* Elegant divider */}
+              <div className="flex items-center gap-3 mb-6 animate-fade-up-delay-1">
+                <span className="ornament-line" />
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-gold">
+                  <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6L8 0Z" fill="currentColor" />
+                </svg>
+                <span className="ornament-line" />
+              </div>
+
+              {/* Description */}
+              <p className="font-sans text-sm md:text-base text-charcoal/70 leading-relaxed mb-8 max-w-lg animate-fade-up-delay-2">
+                Step into a world where every thread has a soul. Handloom Garden brings you authentic, masterfully woven sarees, lehengas, and kurtis—handcrafted by national award-winning Odia artisans to celebrate legacy with contemporary grace.
+              </p>
+
+              {/* Premium Luxury Features List (Replacing generic boxes) */}
+              <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-10 w-full max-w-md animate-fade-up-delay-2">
+                {[
+                  { title: "Pure Silk Mark", desc: "100% Certified authentic silk" },
+                  { title: "Artisan Direct", desc: "Supporting local weaving heritage" },
+                  { title: "Exclusive Weaves", desc: "Limited edition masterpieces" },
+                  { title: "Puri Showroom", desc: "Visit our Swargadwar landmark" },
+                ].map((feat, i) => (
+                  <div key={i} className="flex items-start gap-2.5 border-l-2 border-gold/40 pl-3">
+                    <div className="flex flex-col">
+                      <span className="font-serif text-xs font-bold text-charcoal tracking-wide uppercase">
+                        {feat.title}
+                      </span>
+                      <span className="font-sans text-[10px] text-charcoal/50 mt-0.5">
+                        {feat.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap items-center gap-4 animate-fade-up-delay-3">
+                <Link href="#collections" className="btn-maroon btn-maroon-glow group">
+                  Explore Collections
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link href="/about" className="btn-outline-maroon">
+                  Our Story
+                </Link>
               </div>
             </div>
-          </div>
 
-          <div className="hidden lg:block lg:col-span-1"></div>
+            {/* Right Column: High-End Magazine Style Collage */}
+            <div className="lg:col-span-5 relative w-full h-[480px] md:h-[580px] lg:h-[600px] flex items-center justify-center animate-scale-in">
+              {/* Back Golden Pattern Ring */}
+              <Parallax speed={-0.03} className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] rounded-full border border-gold/10 -z-10 animate-spin-slow" />
+              
+              {/* Main Saree Model Frame (Backwards/Center) */}
+              <Parallax speed={0.03} className="absolute right-4 top-4 w-[240px] h-[340px] md:w-[280px] md:h-[400px] lg:w-[300px] lg:h-[430px] rounded-xl overflow-hidden shadow-2xl border-4 border-white/85 ring-1 ring-gold/20 z-10 card-hover img-zoom animate-fade-in">
+                <Image
+                  src="/images/product_6.webp"
+                  alt="Traditional Odia Saree Masterpiece"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                  sizes="(max-width: 1024px) 50vw, 30vw"
+                />
+              </Parallax>
 
-          {/* Hero Image Block (6 cols) */}
-          <div className="lg:col-span-6 w-full z-10 relative order-1 lg:order-2 animate-fade-up">
-            <div className="aspect-[2/3] relative bg-neutral-200 overflow-hidden rounded-3xl">
-              <Image
-                src="/images/product_6.webp"
-                alt="Puri Handloom Silk Saree Collection Showcase"
-                fill
-                className="object-cover object-top"
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+              {/* Overlay Saree Model Frame (Forwards/Left Offset) */}
+              <Parallax speed={0.07} className="absolute left-4 bottom-4 w-[180px] h-[260px] md:w-[220px] md:h-[310px] lg:w-[240px] lg:h-[340px] rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gold/30 z-20 card-hover img-zoom animate-fade-in">
+                <Image
+                  src="/images/product_11.webp"
+                  alt="Elegant Traditional Silk Details"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 30vw, 20vw"
+                />
+              </Parallax>
+
+              {/* Floating Luxury Gold Badge */}
+              <Parallax speed={0.05} className="absolute -right-2 bottom-20 md:bottom-28 bg-gradient-to-br from-gold to-gold-light text-maroon w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center text-center p-2 shadow-xl border-2 border-cream z-30 animate-bounce-slow">
+                <span className="text-[7px] md:text-[8px] font-bold tracking-widest uppercase leading-none text-maroon/90">
+                  100%
+                </span>
+                <span className="font-serif text-[10px] md:text-xs font-bold leading-tight my-0.5 text-maroon">
+                  Handloom
+                </span>
+                <span className="text-[6px] md:text-[7px] tracking-wider uppercase opacity-85 leading-none text-maroon/80">
+                  Certified
+                </span>
+              </Parallax>
             </div>
-            
-            <div className="absolute -bottom-6 -right-2 bg-raw-silk border border-charcoal/5 px-4 py-2 text-[9px] tracking-widest uppercase font-mono hidden md:block">
-              PURI, ODISHA
-            </div>
+
           </div>
         </div>
-        
-        {/* Scroll Down Lottie Animation */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 opacity-60">
-          <span className="font-sans text-[7px] tracking-[0.25em] uppercase text-charcoal/40">Scroll</span>
-          <LottieAnimation
-            src="https://lottie.host/9e8b75f8-8ef1-4b13-a4c3-b097e88de47a/sO5uE9M47H.json"
-            className="w-8 h-8"
-          />
-        </div>
-
-        <WhatsAppWidget />
       </section>
 
-      {/* SECTION 3: ELEGANT SCROLLING MARQUEE TICKER */}
-      <section className="border-y border-charcoal/5 bg-charcoal py-4 overflow-hidden select-none">
-        <div className="animate-marquee whitespace-nowrap">
-          <span className="font-sans text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-sand font-medium pr-12">
-            AUTHENTIC SAREES • COTTON KURTIS • BED COVERS • DRESS MATERIALS • STOLES
-          </span>
-          <span className="font-sans text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-sand font-medium pr-12">
-            AUTHENTIC SAREES • COTTON KURTIS • BED COVERS • DRESS MATERIALS • STOLES
-          </span>
-          <span className="font-sans text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-sand font-medium pr-12" aria-hidden="true">
-            AUTHENTIC SAREES • COTTON KURTIS • BED COVERS • DRESS MATERIALS • STOLES
-          </span>
-          <span className="font-sans text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-sand font-medium pr-12" aria-hidden="true">
-            AUTHENTIC SAREES • COTTON KURTIS • BED COVERS • DRESS MATERIALS • STOLES
-          </span>
-        </div>
-      </section>
-
-      <OrnamentalDivider />
-
-      {/* SECTION 4: HERITAGE & CRAFTSMANSHIP BANNER SECTION */}
-      <section id="about" className="py-24 px-6 md:px-12 lg:px-24 border-b border-charcoal/5 relative">
-        <ScrollReveal className="max-w-4xl mx-auto flex flex-col items-center justify-center text-center mb-16">
-          <span className="text-[9px] uppercase tracking-[0.25em] text-sand font-bold mb-4">
-            OUR LEGACY
-          </span>
-          <h2 className="font-sans font-extrabold text-2xl md:text-3xl lg:text-4xl text-charcoal tracking-wide uppercase mb-6">
-            Puri Handloom Garden – <span className="text-sand font-medium italic">Tradition</span> You Can Wear
-          </h2>
-          <p className="font-sans text-xs md:text-sm text-charcoal/70 leading-relaxed tracking-wide max-w-3xl">
-            Welcome to Puri Handloom Garden, a trusted showroom in Swargadwar Square, Puri. We are dedicated to bringing you the finest authentic handloom sarees and ethnic wear. Sourced directly from local weavers across Odisha, our collections offer traditional designs, pure fabrics, and lasting quality for every occasion. Every purchase supports local weavers and helps keep our heritage alive.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal delay={100} className="max-w-xl mx-auto">
-          <div className="aspect-[2/3] relative bg-neutral-200 overflow-hidden rounded-3xl">
-            <Image
-              src="/images/product_7.webp"
-              alt="Traditional Odisha Handloom threads on wooden loom shuttle"
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 600px"
-            />
-          </div>
-        </ScrollReveal>
-      </section>
-
-      <OrnamentalDivider />
-
-      {/* SECTION 5: SHOP BY CATEGORIES (Borderless Categories) */}
-      <section id="collections" className="py-24 px-6 md:px-12 lg:px-24 border-b border-charcoal/5 bg-raw-silk">
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
-          
+      {/* ============================================ */}
+      {/* SECTION 2: OUR COLLECTIONS */}
+      {/* ============================================ */}
+      <section id="collections" className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-cream">
+        <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="font-sans font-extrabold text-2xl md:text-3xl tracking-wider text-charcoal uppercase">
-              Shop by <span className="text-sand font-medium italic">Categories</span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-3 tracking-wide hover:tracking-widest transition-all duration-700">
+              OUR COLLECTIONS
             </h2>
-            
-            <a
-              href="#collections"
-              className="inline-flex items-center gap-1.5 mt-4 text-[9px] tracking-wider uppercase font-semibold text-charcoal hover:text-sand transition-colors group"
-            >
-              <span>View All Collection</span>
-              <Send size={9} className="transform group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="ornament-line-wide mb-4" />
+            <p className="font-sans text-sm text-charcoal/60 max-w-lg mx-auto">
+              A timeless range of ethnic wear for every occasion
+            </p>
           </ScrollReveal>
 
-          {/* Borderless category list placing text underneath */}
-          <ScrollReveal delay={100} className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <ScrollReveal delay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {categories.map((cat, index) => (
               <Link
                 key={index}
                 href={cat.href}
-                className="group flex flex-col items-center"
+                className="group flex flex-col card-hover"
               >
-                <div className="w-full aspect-[2/3] relative bg-neutral-100 rounded-3xl overflow-hidden shadow-none">
+                <div className="w-full aspect-[3/4] relative bg-cream-dark overflow-hidden rounded-lg img-zoom">
                   <Image
                     src={cat.image}
-                    alt={`${cat.title} category view`}
+                    alt={`${cat.title} collection`}
                     fill
-                    className="object-cover object-top transform scale-100 group-hover:scale-103 transition-all duration-700"
-                    sizes="(max-width: 768px) 100vw, 20vw"
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
 
-                <span className="font-sans text-xs md:text-sm font-bold tracking-wider text-charcoal text-center mt-4 block uppercase group-hover:text-sand transition-colors">
-                  {cat.title}
-                </span>
-                <span className="font-sans text-[9px] tracking-wider text-charcoal/40 text-center mt-0.5 block uppercase">
-                  {cat.cluster}
-                </span>
+                <div className="mt-4 text-center">
+                  <h3 className="font-serif text-xl md:text-2xl text-charcoal font-semibold mb-1 group-hover:text-maroon transition-all duration-500 tracking-wide group-hover:tracking-widest">
+                    {cat.title}
+                  </h3>
+                  <p className="font-sans text-xs text-charcoal/50 mb-3">
+                    {cat.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-maroon text-xs font-bold tracking-wider uppercase group-hover:gap-2 transition-all">
+                    View Collection
+                    <ArrowRight size={14} />
+                  </span>
+                </div>
               </Link>
             ))}
           </ScrollReveal>
         </div>
       </section>
 
-      <OrnamentalDivider />
-
-      {/* SECTION 6: CHERISHED BY OUR PATRONS */}
-      <section className="py-24 border-b border-charcoal/5 bg-raw-silk/50">
-        <div className="max-w-7xl mx-auto">
-          
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal font-normal">
-              Cherished by Our <span className="text-sand font-medium italic">Patrons</span>
-            </h2>
-            <p className="font-sans text-[11px] md:text-xs text-charcoal/70 leading-relaxed max-w-xl mx-auto mt-4 font-light">
-              Each Odia handloom saree is handwoven by master artisans, chosen by women of grace for life&apos;s most treasured moments.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={100} className="flex overflow-x-auto snap-x snap-mandatory gap-8 px-6 md:px-12 lg:px-24 pb-8 scrollbar-thin">
-            {patronDiaries.map((diary, index) => (
-              <div
-                key={index}
-                className="w-72 md:w-80 min-w-[280px] snap-start flex flex-col group"
-              >
-                <div className="w-full aspect-[2/3] relative bg-neutral-100 rounded-3xl overflow-hidden">
-                  <Image
-                    src={diary.image}
-                    alt={`${diary.name} wearing handloom saree`}
-                    fill
-                    className="object-cover object-top transform scale-100 group-hover:scale-103 transition-all duration-700"
-                    sizes="300px"
-                  />
-                </div>
-
-                <div className="mt-4 flex flex-col text-center px-4">
-                  <span className="font-sans text-xs font-bold text-charcoal uppercase tracking-wider">
-                    {diary.name}
-                  </span>
-                  <span className="font-sans text-[9px] text-sand font-bold tracking-widest uppercase mt-0.5">
-                    {diary.occasion}
-                  </span>
-                  <p className="font-serif italic text-xs text-charcoal/70 leading-relaxed mt-2 px-2">
-                    &quot;{diary.quote}&quot;
-                  </p>
-                </div>
-              </div>
-            ))}
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <OrnamentalDivider />
-
-      {/* SECTION 7: THE MASTERPIECE WEAVES SHOWCASE (WEAVE REGISTRY) */}
-      <section className="py-24 border-b border-charcoal/5 bg-raw-silk">
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal className="px-6 md:px-12 lg:px-24 mb-16">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-sand font-bold mb-4 block">
-              MASTERPIECE WEAVE REGISTRY
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal font-normal">
-              The Heritage <span className="text-sand font-medium italic">Archives</span>
-            </h2>
-            <p className="font-sans text-xs text-charcoal/60 mt-2 max-w-lg">
-              A detailed catalog of Odisha weaves currently preserved and available for enquiry at our Swargadwar gallery.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={100} className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-12 lg:px-24 pb-8 scrollbar-thin">
-            {masterpieceWeaves.map((weave, index) => (
-              <div
-                key={index}
-                className="min-w-[300px] md:min-w-[420px] snap-start border border-charcoal/10 bg-raw-silk p-8 flex flex-col justify-between relative group hover:border-sand/30 transition-all duration-300 rounded-3xl"
-              >
-                <div className="absolute top-0 bottom-0 right-[40px] w-[1px] bg-charcoal/5 pointer-events-none" />
-
-                <div>
-                  <div className="flex justify-between items-start mb-6">
-                    <span className="font-sans text-[9px] tracking-widest text-sand font-bold uppercase">
-                      {weave.origin}
-                    </span>
-                    <span className="font-mono text-[9px] text-charcoal/40">
-                      REG: PHG-0{index + 1}
-                    </span>
-                  </div>
-
-                  <div className="relative w-full aspect-[2/3] mb-6 overflow-hidden rounded-2xl">
-                    <Image
-                      src={weave.image}
-                      alt={weave.title}
-                      fill
-                      className="object-cover object-top transform group-hover:scale-103 transition-transform duration-500"
-                    />
-                  </div>
-
-                  <h3 className="font-serif text-xl text-charcoal mb-4 font-normal">
-                    {weave.title}
-                  </h3>
-
-                  {/* Specification Table */}
-                  <div className="border-t border-b border-charcoal/10 py-4 mb-6 space-y-2">
-                    <div className="flex justify-between text-[10px] font-sans">
-                      <span className="text-charcoal/40 uppercase">Artisan Loom</span>
-                      <span className="text-charcoal font-medium">{weave.artisan}</span>
-                    </div>
-                    <div className="flex justify-between text-[10px] font-sans">
-                      <span className="text-charcoal/40 uppercase">Time to Weave</span>
-                      <span className="text-charcoal font-medium">{weave.duration}</span>
-                    </div>
-                    <div className="flex justify-between text-[10px] font-sans">
-                      <span className="text-charcoal/40 uppercase">Natural Dye</span>
-                      <span className="text-charcoal font-medium">{weave.dyes}</span>
-                    </div>
-                  </div>
-
-                  <p className="font-sans text-xs text-charcoal/70 leading-relaxed mb-8 pr-10">
-                    {weave.description}
-                  </p>
-                </div>
-                
-                <a
-                  href={`https://wa.me/919937157653?text=${encodeURIComponent(weave.presettedText)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-charcoal text-charcoal hover:bg-charcoal hover:text-raw-silk px-4 py-2.5 text-[9px] tracking-[0.2em] uppercase font-semibold transition-colors duration-300 self-start"
-                >
-                  Request Registry Photos
-                  <ArrowUpRight size={12} />
-                </a>
-              </div>
-            ))}
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <OrnamentalDivider />
-
-      {/* SECTION 8: "THE HANDLOOM GARDEN STANDARDS" (USPs Overhaul) */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 border-b border-charcoal/5 bg-raw-silk/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start relative">
-          
-          <div className="hidden lg:block absolute top-0 bottom-0 left-[41.6%] w-[1px] bg-charcoal/5 pointer-events-none" />
-
-          {/* Left Column title */}
-          <ScrollReveal className="lg:col-span-5 lg:pr-12">
-            <span className="text-[9px] uppercase tracking-[0.25em] text-sand font-bold mb-4 block">
-              OUR STANDARDS
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal leading-tight font-normal">
-              Why Choose <span className="text-sand font-medium italic">Handloom Garden</span>
-            </h2>
-            <p className="font-sans text-xs md:text-sm text-charcoal/70 leading-relaxed tracking-wide mt-6">
-              We prioritize premium fabrics, fine craftsmanship, and lasting durability in every piece. We operate under strict quality check mandates to preserve traditional weaving methods.
-            </p>
-          </ScrollReveal>
-
-          <div className="hidden lg:block lg:col-span-1"></div>
-
-          {/* Right Column List (Replaced childish boxes) */}
-          <ScrollReveal delay={100} className="lg:col-span-6 space-y-12">
-            <div>
-              <div className="flex gap-4 items-start">
-                <span className="font-serif text-base text-sand italic">01.</span>
-                <div>
-                  <h3 className="font-sans font-bold text-xs tracking-wider uppercase text-charcoal mb-2">
-                    Authentic Handloom Collection
-                  </h3>
-                  <p className="font-sans text-xs text-charcoal/70 leading-relaxed">
-                    Carefully selected handwoven fabrics and ethnic wear crafted by skilled artisans.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex gap-4 items-start">
-                <span className="font-serif text-base text-sand italic">02.</span>
-                <div>
-                  <h3 className="font-sans font-bold text-xs tracking-wider uppercase text-charcoal mb-2">
-                    Wide Variety
-                  </h3>
-                  <p className="font-sans text-xs text-charcoal/70 leading-relaxed">
-                    From elegant sarees and dress materials to traditional and contemporary outfits for every occasion.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex gap-4 items-start">
-                <span className="font-serif text-base text-sand italic">03.</span>
-                <div>
-                  <h3 className="font-sans font-bold text-xs tracking-wider uppercase text-charcoal mb-2">
-                    Quality You Can Trust
-                  </h3>
-                  <p className="font-sans text-xs text-charcoal/70 leading-relaxed">
-                    We prioritize premium fabrics, fine craftsmanship, and lasting durability in every piece.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex gap-4 items-start">
-                <span className="font-serif text-base text-sand italic">04.</span>
-                <div>
-                  <h3 className="font-sans font-bold text-xs tracking-wider uppercase text-charcoal mb-2">
-                    Supporting Indian Artisans
-                  </h3>
-                  <p className="font-sans text-xs text-charcoal/70 leading-relaxed">
-                    Every purchase helps preserve traditional weaving techniques and supports local weaving communities.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <OrnamentalDivider />
-
-      {/* SECTION 9: VISIT OUR SHOWROOM */}
-      <section id="showroom" className="py-24 px-6 md:px-12 lg:px-24 bg-charcoal text-raw-silk relative overflow-hidden bg-grid-dots-dark">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative">
-          
-          <div className="hidden lg:block absolute top-0 bottom-0 left-[41.6%] w-[1px] bg-raw-silk/5 pointer-events-none" />
-
-          {/* Location details (5 cols) */}
-          <ScrollReveal className="lg:col-span-5 flex flex-col z-10">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-sand font-bold mb-4">
-              VISIT OUR SHOWROOM
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-raw-silk mb-6 font-normal">
-              Our Puri <span className="text-sand font-medium italic">Showroom</span>
-            </h2>
-            <p className="font-sans text-xs md:text-sm text-[#F9F6F0]/80 leading-relaxed tracking-wide mb-6">
-              Located at Swargadwar Square, near the shore of the Bay of Bengal, our showroom is a warm space to touch and feel our authentic handwoven sarees and cotton fabrics in person. We look forward to welcoming you.
-            </p>
-            <p className="font-serif text-xl md:text-2xl text-[#F9F6F0]/90 mb-8 leading-relaxed">
-              {physicalAddress}
-            </p>
-            <div className="flex flex-col gap-4 self-start">
-              <a
-                href={landlineCall}
-                className="inline-flex items-center gap-3 border border-sand bg-transparent text-sand hover:bg-sand hover:text-charcoal px-6 py-4 text-[10px] tracking-[0.2em] uppercase font-semibold transition-all duration-300"
-              >
-                <Phone size={12} />
-                Call Showroom: 06752-220037
-              </a>
-              <a
-                href={alternateWhatsApp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 border border-raw-silk/30 bg-transparent text-raw-silk hover:border-raw-silk px-6 py-4 text-[10px] tracking-[0.2em] uppercase font-semibold transition-all duration-300"
-              >
-                Inquire via Mobile
-                <ArrowUpRight size={12} />
-              </a>
-            </div>
-            <span className="mt-8 font-sans text-[9px] text-[#F9F6F0]/40 tracking-wider flex items-center gap-2">
-              <Compass size={12} />
-              SWARGADWAR, PURI
-            </span>
-          </ScrollReveal>
-
-          <div className="hidden lg:block lg:col-span-1"></div>
-
-          {/* Map Embed */}
-          <ScrollReveal delay={100} className="lg:col-span-6 w-full z-10">
-            <div className="border border-sand/20 aspect-video w-full bg-neutral-800 relative overflow-hidden rounded-3xl">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.838501258674!2d85.81665427606399!3d20.182470781263593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c3fb45b5db3b%3A0xe54e6063b51b32d!2sSwargadwar%20Rd%2C%20Puri%2C%20Odisha!5e0!3m2!1sen!2sin!4v1719380000000!5m2!1sen!2sin"
-                className="w-full h-full border-0 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Puri Handloom Garden Location Map"
-              ></iframe>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <OrnamentalDivider />
-
-      {/* SECTION 10: DIRECT INQUIRY LEAD FORM */}
-      <section id="inquiry" className="py-24 px-6 md:px-12 lg:px-24 border-b border-charcoal/5 bg-raw-silk">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Header & Details */}
-          <ScrollReveal className="lg:col-span-4 flex flex-col justify-start">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-sand font-bold mb-4">
-              SEND AN INQUIRY
-            </span>
-            <h2 className="font-serif text-3xl text-charcoal mb-4 font-normal">
-              Ask About a <span className="text-sand font-medium italic">Product</span>
-            </h2>
-            <p className="font-sans text-xs md:text-sm text-charcoal/70 leading-relaxed mb-8 max-w-sm">
-              Have questions about a saree, kurti, or bed cover? Fill out the form below with your contact details, and we will get back to you with price and availability.
-            </p>
-            <div className="space-y-4">
-              <a
-                href={emailMailto}
-                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-charcoal font-semibold hover:text-sand transition-colors duration-300"
-              >
-                <Mail size={12} />
-                rajeshmullick.puri@gmail.com
-              </a>
-              <div className="block">
-                <a
-                  href={landlineCall}
-                  className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-charcoal font-semibold hover:text-sand transition-colors duration-300"
-                >
-                  <Phone size={12} />
-                  06752-220037
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Form */}
-          <ScrollReveal delay={100} className="lg:col-span-8">
-            <form action="https://formspree.io/f/rajeshmullick.puri@gmail.com" method="POST" className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Name"
-                    className="w-full bg-transparent border-b border-charcoal/20 py-4 text-xs text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-sand transition-all duration-300 rounded-none"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    placeholder="WhatsApp Number"
-                    className="w-full bg-transparent border-b border-charcoal/20 py-4 text-xs text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-sand transition-all duration-300 rounded-none"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="Email Address"
-                    className="w-full bg-transparent border-b border-charcoal/20 py-4 text-xs text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-sand transition-all duration-300 rounded-none"
-                  />
-                </div>
-                <div>
-                  <select
-                    name="cluster_interest"
-                    required
-                    defaultValue=""
-                    className="w-full bg-transparent border-b border-charcoal/20 py-4 text-xs text-charcoal/70 placeholder-charcoal/40 focus:outline-none focus:border-sand transition-all duration-300 rounded-none cursor-pointer"
-                  >
-                    <option value="" disabled>
-                      Select Weaving Cluster Interest
-                    </option>
-                    <option value="Sonpur Cluster (Sambalpuri Silk)">Sonpur Cluster (Sambalpuri Silk)</option>
-                    <option value="Nuapatna Cluster (Khandua & Cotton)">Nuapatna Cluster (Khandua &amp; Cotton)</option>
-                    <option value="Koraput Cluster (Kotpad Organic Dye)">Koraput Cluster (Kotpad Organic Dye)</option>
-                    <option value="Ganjam Cluster (Bomkai Silk)">Ganjam Cluster (Bomkai Silk)</option>
-                    <option value="Raghurajpur Cluster (Patachitra Paint)">Raghurajpur Cluster (Patachitra Paint)</option>
-                    <option value="General Inventory Inquiry">General Inventory Inquiry</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <textarea
-                  name="message"
-                  rows={4}
-                  required
-                  placeholder="Your Weave Request (Please specify size or weave pattern if known)"
-                  className="w-full bg-transparent border-b border-charcoal/20 py-4 text-xs text-charcoal placeholder-charcoal/40 focus:outline-none focus:border-sand transition-all duration-300 rounded-none resize-none"
+      {/* ============================================ */}
+      {/* SECTION 3: ABOUT US — PRESERVING TRADITION */}
+      {/* ============================================ */}
+      <section id="about" className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-cream-dark/50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — Image */}
+          <ScrollReveal direction="left" className="relative">
+            <Parallax speed={0.03} className="w-full h-full">
+              <div className="aspect-[3/4] relative rounded-lg overflow-hidden img-zoom shadow-xl border border-charcoal/5">
+                <Image
+                  src="/images/product_7.webp"
+                  alt="Woman wearing traditional handloom saree at Handloom Garden"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-
-              <button
-                type="submit"
-                className="border border-charcoal bg-charcoal text-raw-silk px-10 py-4 text-[10px] tracking-[0.25em] uppercase font-semibold hover:bg-sand hover:border-sand hover:text-charcoal transition-all duration-300 cursor-pointer"
-              >
-                Submit Registry Request
-              </button>
-            </form>
+            </Parallax>
           </ScrollReveal>
+
+          {/* Right — Content */}
+          <ScrollReveal direction="right" className="flex flex-col">
+            <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-maroon font-bold mb-3">
+              About Us
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[42px] text-charcoal leading-tight mb-6">
+              Preserving Tradition,{" "}
+              <span className="block italic text-maroon">
+                Dressing Generations
+              </span>
+            </h2>
+            <p className="font-sans text-sm text-charcoal/70 leading-relaxed mb-8">
+              Located in the heart of Puri at Swargadwar Square, Handloom Garden is an A/C Mega Showroom offering a premium range of handloom and ethnic wear for women.
+            </p>
+
+            {/* Silk Mark Certified Badge */}
+            <div className="silk-mark-badge flex items-center gap-5 mb-8 max-w-sm">
+              <div className="shrink-0">
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center border-2 border-gold">
+                  <span className="text-2xl">🏅</span>
+                </div>
+              </div>
+              <div>
+                <span className="font-serif text-lg font-bold text-charcoal block">
+                  SILK MARK
+                </span>
+                <span className="font-sans text-[10px] tracking-widest uppercase text-maroon font-bold">
+                  Certified Store
+                </span>
+                <p className="font-sans text-[10px] text-charcoal/50 mt-1">
+                  Your Assurance of Pure Silk &amp; Handloom Quality
+                </p>
+              </div>
+            </div>
+
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[
+                { icon: <Palette size={20} />, label: "Wide Range", sub: "of Collections" },
+                { icon: <Star size={20} />, label: "Premium", sub: "Quality" },
+                { icon: <Award size={20} />, label: "Trusted by", sub: "Thousands" },
+                { icon: <ShoppingBag size={20} />, label: "Personalized", sub: "Service" },
+              ].map((stat, i) => (
+                <div key={i} className="flex flex-col items-center text-center p-3 rounded-lg bg-white/60 border border-charcoal/5">
+                  <div className="text-maroon mb-2">{stat.icon}</div>
+                  <span className="font-sans text-xs font-bold text-charcoal">{stat.label}</span>
+                  <span className="font-sans text-[10px] text-charcoal/50">{stat.sub}</span>
+                </div>
+              ))}
+            </div>
+
+            <Link href="/about" className="btn-maroon btn-maroon-glow self-start">
+              Know More About Us
+              <ArrowRight size={16} />
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 4: WHY CHOOSE HANDLOOM GARDEN? */}
+      {/* ============================================ */}
+      <section id="speciality" className="py-20 md:py-24 px-6 md:px-12 lg:px-20 bg-cream bg-pattern-subtle">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-3 tracking-wide hover:tracking-widest transition-all duration-700">
+              WHY CHOOSE HANDLOOM GARDEN?
+            </h2>
+            <div className="ornament-line-wide" />
+          </ScrollReveal>
+
+          <ScrollReveal delay={100} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {whyChooseUs.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center p-6 rounded-xl bg-white border border-charcoal/5 card-hover"
+              >
+                <div className="w-16 h-16 rounded-full bg-maroon/5 flex items-center justify-center mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="font-sans text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-[10px] text-charcoal/50 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 5: OUR WORK GALLERY */}
+      {/* ============================================ */}
+      <section id="our-work" className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-cream-dark/30">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal className="text-center mb-12">
+            <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-maroon font-bold mb-2 block">
+              Our Work
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-3 tracking-wide hover:tracking-widest transition-all duration-700">
+              OUR WORK
+            </h2>
+            <p className="font-sans text-sm text-charcoal/60">
+              A glimpse of our latest creations
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+            {galleryImages.map((img, index) => (
+              <div key={index} className="aspect-[3/4] relative rounded-lg overflow-hidden img-zoom shadow-md">
+                <Image
+                  src={img}
+                  alt={`Handloom Garden work showcase ${index + 1}`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 50vw, 20vw"
+                />
+              </div>
+            ))}
+          </ScrollReveal>
+
+          <ScrollReveal delay={200} className="text-center mt-10">
+            <Link href="/category/sarees" className="btn-outline-maroon">
+              View More Works
+              <ArrowRight size={14} />
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 6: THE HANDLOOM PROMISE */}
+      {/* ============================================ */}
+      <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-cream">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — Content */}
+          <ScrollReveal direction="left">
+            <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-maroon font-bold mb-3 block">
+              The Handloom Promise
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal leading-tight mb-6">
+              Crafted with Passion,{" "}
+              <span className="block italic text-maroon">
+                Woven with Pride
+              </span>
+            </h2>
+            <p className="font-sans text-sm text-charcoal/70 leading-relaxed mb-8">
+              Every weave tells a story. We work closely with skilled weavers and artisans to bring you creations that reflect our rich culture and timeless beauty.
+            </p>
+
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                "Handpicked Fabrics",
+                "Vibrant Colors",
+                "Intricate Weaves",
+                "Attention to Detail",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-maroon/10 flex items-center justify-center shrink-0">
+                    <Check size={14} className="text-maroon" />
+                  </div>
+                  <span className="font-sans text-sm text-charcoal font-medium">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Right — Image */}
+          <ScrollReveal direction="right" className="relative">
+            <Parallax speed={0.03} className="w-full h-full">
+              <div className="aspect-[4/5] relative rounded-lg overflow-hidden img-zoom shadow-xl border border-charcoal/5">
+                <Image
+                  src="/images/product_8.webp"
+                  alt="Handloom artisan weaving traditional fabric"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </Parallax>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 7: LOVED BY OUR CLIENTS */}
+      {/* ============================================ */}
+      <section id="clientele" className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-cream-dark/50">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-3 tracking-wide hover:tracking-widest transition-all duration-700">
+              LOVED BY OUR CLIENTS
+            </h2>
+            <div className="ornament-line-wide" />
+          </ScrollReveal>
+
+          <ScrollReveal delay={100} className="relative max-w-4xl mx-auto">
+            {/* Carousel Container */}
+            <div className="overflow-hidden bg-white/70 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-charcoal/5 shadow-xl relative min-h-[280px] flex items-center justify-center transition-all duration-500">
+              
+              {/* Active testimonial card */}
+              <div className="flex flex-col items-center text-center max-w-2xl mx-auto transition-opacity duration-500 ease-in-out">
+                {/* Avatar with pulsing rings */}
+                <div className="w-20 h-20 rounded-full overflow-hidden border-3 border-maroon/20 mb-6 relative shadow-lg">
+                  <Image
+                    src={testimonials[activeTestimonial].image}
+                    alt={testimonials[activeTestimonial].name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="80px"
+                  />
+                </div>
+
+                {/* Star rating */}
+                <div className="flex items-center gap-1 mb-4 text-gold">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill="currentColor" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="font-serif italic text-base md:text-lg text-charcoal/80 leading-relaxed mb-6 px-4 md:px-8">
+                  &ldquo;{testimonials[activeTestimonial].quote}&rdquo;
+                </p>
+
+                {/* Name */}
+                <span className="font-sans text-xs md:text-sm font-bold text-maroon uppercase tracking-[0.15em]">
+                  {testimonials[activeTestimonial].name}
+                </span>
+                <span className="font-sans text-[10px] text-charcoal/40 uppercase tracking-wider mt-1">
+                  Verified Patron
+                </span>
+              </div>
+            </div>
+
+            {/* Navigation buttons */}
+            <button
+              onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+              className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:text-maroon hover:bg-white shadow-lg active:scale-95 transition-all cursor-pointer z-10"
+              aria-label="Previous Testimonial"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <button
+              onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
+              className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:text-maroon hover:bg-white shadow-lg active:scale-95 transition-all cursor-pointer z-10"
+              aria-label="Next Testimonial"
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            {/* Navigation Dots */}
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTestimonial(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    activeTestimonial === index
+                      ? "bg-maroon w-6"
+                      : "bg-charcoal/20 hover:bg-charcoal/40"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 8: NEWSLETTER / CTA BAR */}
+      {/* ============================================ */}
+      <section className="py-6 px-6 md:px-12 bg-maroon">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Left — Logo + Text */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <Link href="/" className="flex items-center gap-3 shrink-0 group">
+              <div className="relative h-11 w-11 shrink-0 group-hover:scale-105 transition-all duration-300">
+                <Image
+                  src="/images/logo_small.webp"
+                  alt="Handloom Garden Logo"
+                  fill
+                  className="object-contain"
+                  sizes="44px"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-base font-bold text-white leading-tight group-hover:text-gold transition-colors duration-300">
+                  HANDLOOM
+                </span>
+                <span className="font-serif text-xs italic text-gold -mt-0.5">
+                  Garden
+                </span>
+              </div>
+            </Link>
+            <div className="hidden sm:block h-8 w-px bg-white/20 mx-1" />
+            <div>
+              <span className="font-serif text-sm md:text-base text-white font-semibold block">
+                Stay Updated with Our Latest Collections
+              </span>
+              <span className="font-sans text-[10px] text-white/60">
+                Get updates on new arrivals, exclusive designs &amp; more.
+              </span>
+            </div>
+          </div>
+
+          {/* Right — Phone + Submit */}
+          <div className="flex items-center gap-3 w-full md:w-auto">
+            <input
+              type="tel"
+              placeholder="Enter your phone number"
+              className="newsletter-input flex-1 md:flex-none rounded-sm font-sans"
+              pattern="[0-9]{10}"
+              maxLength={15}
+            />
+            <button className="bg-gold text-charcoal px-6 py-3.5 text-[11px] font-bold tracking-widest uppercase rounded-sm hover:bg-gold-light transition-colors cursor-pointer shrink-0">
+              Submit
+            </button>
+          </div>
         </div>
       </section>
 
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 }

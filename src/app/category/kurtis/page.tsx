@@ -60,28 +60,29 @@ export default function KurtisCategoryPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#F9F6F0] text-[#1C1A17] flex flex-col selection:bg-[#C2B280] selection:text-[#1C1A17] bg-grid-dots">
+    <div className="relative min-h-screen bg-cream text-charcoal flex flex-col">
       <Header />
 
-      {/* Page Title Section */}
-      <section className="pt-20 pb-12 px-6 md:px-12 lg:px-24 border-b border-[#1C1A17]/5">
+      {/* Page Title */}
+      <section className="pt-16 pb-10 px-6 md:px-12 lg:px-20 border-b border-charcoal/5">
         <ScrollReveal className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#C2B280] font-bold mb-3 block">
-              OUR COLLECTIONS
+            <span className="text-[10px] uppercase tracking-[0.2em] text-maroon font-bold mb-2 block">
+              Our Collections
             </span>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1C1A17] leading-tight font-normal uppercase">
-              Kurtis &amp; <span className="text-[#C2B280] font-medium italic">Readymade Wear</span>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight">
+              Kurtis &amp;{" "}
+              <span className="italic text-maroon">Readymade Wear</span>
             </h1>
           </div>
-          <p className="font-sans text-xs md:text-sm text-[#1C1A17]/60 max-w-md leading-relaxed tracking-wide">
-            Beautiful traditional styles made for everyday wear. Click any image to view details and ask about size options on WhatsApp.
+          <p className="font-sans text-sm text-charcoal/60 max-w-md leading-relaxed">
+            Beautiful traditional styles made for everyday wear. Click any image to view details.
           </p>
         </ScrollReveal>
       </section>
 
-      {/* Grid Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 flex-grow">
+      {/* Grid */}
+      <section className="py-16 px-6 md:px-12 lg:px-20 flex-grow">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {kurtiProducts.map((product, index) => {
             const encodedText = encodeURIComponent(
@@ -90,79 +91,71 @@ export default function KurtisCategoryPage() {
             const waLink = `${primaryWhatsAppBase}${encodedText}`;
 
             return (
-              <ScrollReveal key={product.id} delay={(index % 4) * 100} className="flex flex-col group">
-                {/* Visual Frame */}
-                <div className="w-full aspect-[2/3] relative bg-neutral-100 rounded-3xl overflow-hidden mb-6">
+              <ScrollReveal key={product.id} delay={(index % 4) * 100} className="flex flex-col group card-hover">
+                <div className="w-full aspect-[3/4] relative bg-cream-dark rounded-lg overflow-hidden mb-5 img-zoom">
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-cover object-top transform group-hover:scale-103 transition-transform duration-700"
+                    className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  <div className="absolute top-4 left-4 bg-[#1C1A17]/70 backdrop-blur-md text-[#F9F6F0] px-3 py-1.5 text-[8px] tracking-widest uppercase font-mono rounded-full">
+                  <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full">
                     {product.id}
                   </div>
-                  
-                  {/* Lightbox Trigger overlay */}
                   <button
                     onClick={() => handleOpenLightbox(product.image, product.title, product.id)}
-                    className="absolute bottom-4 right-4 bg-[#F9F6F0]/90 text-[#1C1A17] p-2 hover:bg-[#C2B280] hover:text-[#1C1A17] transition-all duration-300 rounded-full shadow-md cursor-pointer"
+                    className="absolute bottom-3 right-3 bg-white/90 text-charcoal p-2 hover:bg-maroon hover:text-cream transition-all duration-300 rounded-full shadow-md cursor-pointer"
                     aria-label={`View larger image of ${product.title}`}
                   >
                     <Maximize2 size={14} />
                   </button>
                 </div>
 
-                {/* Meta details */}
                 <div className="mb-2">
-                  <span className="font-mono text-[8px] text-[#C2B280] tracking-widest uppercase block mb-1">
+                  <span className="font-sans text-[9px] text-maroon tracking-widest uppercase block mb-1 font-bold">
                     {product.cluster}
                   </span>
-                  <h2 className="font-serif text-base text-[#1C1A17] font-normal leading-tight group-hover:text-[#C2B280] transition-colors">
+                  <h2 className="font-serif text-base text-charcoal leading-tight group-hover:text-maroon transition-colors">
                     {product.title}
                   </h2>
                 </div>
 
-                <p className="font-sans text-xs text-[#1C1A17]/70 leading-relaxed tracking-wide mb-4">
+                <p className="font-sans text-xs text-charcoal/60 leading-relaxed mb-3">
                   {product.desc}
                 </p>
 
-                <div className="border-t border-[#1C1A17]/5 pt-3 mb-6 flex justify-between items-center text-[9px] font-mono text-[#1C1A17]/40 tracking-wider">
-                  <span>{product.spec}</span>
+                <div className="border-t border-charcoal/5 pt-3 mb-5 text-[9px] font-sans text-charcoal/40 tracking-wider">
+                  {product.spec}
                 </div>
 
-                {/* WhatsApp Inquiry Link */}
                 <a
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center justify-between border border-[#1C1A17] bg-[#1C1A17] text-[#F9F6F0] hover:bg-[#C2B280] hover:border-[#C2B280] hover:text-[#1C1A17] px-5 py-3 text-[10px] tracking-[0.2em] uppercase font-bold transition-all duration-300 w-full rounded-none"
+                  className="mt-auto btn-maroon justify-center w-full text-[10px]"
                 >
                   <span>Inquire on WhatsApp</span>
                   <MessageSquare size={12} />
                 </a>
-                </ScrollReveal>
+              </ScrollReveal>
             );
           })}
         </div>
       </section>
 
-      {/* Lightbox Modal Overlay */}
+      {/* Lightbox */}
       {activeImage && (
-        <div className="fixed inset-0 z-50 bg-[#1C1A17]/95 flex flex-col justify-center items-center p-6 md:p-12 transition-opacity duration-300">
-          
-          {/* Close button */}
+        <div className="fixed inset-0 z-50 bg-charcoal/95 flex flex-col justify-center items-center p-6 md:p-12">
           <button
             onClick={handleCloseLightbox}
-            className="absolute top-6 right-6 text-[#F9F6F0] hover:text-[#C2B280] transition-colors p-2 cursor-pointer z-55"
+            className="absolute top-6 right-6 text-cream hover:text-gold transition-colors p-2 cursor-pointer z-[55]"
             aria-label="Close details"
           >
             <X size={24} />
           </button>
 
-          {/* Frame */}
-          <div className="relative w-full max-w-2xl aspect-[2/3] max-h-[75vh] bg-[#1C1A17] rounded-3xl overflow-hidden mb-6">
+          <div className="relative w-full max-w-2xl aspect-[3/4] max-h-[75vh] bg-charcoal rounded-lg overflow-hidden mb-6">
             <Image
               src={activeImage}
               alt={activeProductTitle}
@@ -172,24 +165,22 @@ export default function KurtisCategoryPage() {
             />
           </div>
 
-          {/* Details & WhatsApp Inquiry inside Lightbox */}
           <div className="text-center w-full max-w-md">
-            <span className="font-mono text-[9px] text-[#C2B280] tracking-widest uppercase block mb-1">
-              PRODUCT CODE: {activeProductId}
+            <span className="font-sans text-[9px] text-gold tracking-widest uppercase block mb-1 font-bold">
+              {activeProductId}
             </span>
-            <h3 className="font-serif text-xl text-[#F9F6F0] font-normal mb-3">
+            <h3 className="font-serif text-xl text-cream mb-4">
               {activeProductTitle}
             </h3>
-            
             <a
               href={`${primaryWhatsAppBase}${encodeURIComponent(
-                `Hi Handloom Garden, I am looking at the photo of ${activeProductTitle} (${activeProductId}) and would like to ask about price and sizes.`
+                `Hi Handloom Garden, I am looking at ${activeProductTitle} (${activeProductId}) and would like to ask about price and sizes.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-[#C2B280] bg-[#C2B280] text-[#1C1A17] hover:bg-transparent hover:text-[#C2B280] px-8 py-3.5 text-[10px] tracking-[0.25em] uppercase font-bold transition-all duration-300 rounded-none cursor-pointer"
+              className="inline-flex items-center gap-3 bg-gold text-charcoal hover:bg-gold-light px-8 py-3.5 text-[10px] tracking-[0.2em] uppercase font-bold transition-all duration-300 cursor-pointer"
             >
-              <span>WhatsApp Inquiry</span>
+              WhatsApp Inquiry
               <MessageSquare size={12} />
             </a>
           </div>

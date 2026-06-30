@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { X, MessageSquare, Maximize2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollReveal from "@/components/ScrollReveal";
+import { getProductsByCategory } from "@/data/products";
 
 export default function KurtisCategoryPage() {
   const primaryWhatsAppBase = "https://wa.me/919937157653?text=";
@@ -14,40 +16,7 @@ export default function KurtisCategoryPage() {
   const [activeProductTitle, setActiveProductTitle] = useState<string>("");
   const [activeProductId, setActiveProductId] = useState<string>("");
 
-  const kurtiProducts = [
-    {
-      id: "PHG-KRT-001",
-      title: "Maniabandha Ikat Kurti",
-      cluster: "Maniabandha Village",
-      image: "/images/product_4.webp",
-      desc: "Beautiful handwoven cotton kurti featuring traditional floral borders and fish-scale designs.",
-      spec: "Handloom Cotton • Comfortable fit",
-    },
-    {
-      id: "PHG-KRT-002",
-      title: "Hand-Block Printed Kurti",
-      cluster: "Nuapatna Cooperatives",
-      image: "/images/product_14.webp",
-      desc: "Traditional block-print detailing along the neckline. Woven with lightweight cotton, perfect for hot weather.",
-      spec: "Pure Cotton • Natural Colors",
-    },
-    {
-      id: "PHG-KRT-003",
-      title: "Bomkai Pattern Accent Kurti",
-      cluster: "Ganjam District",
-      image: "/images/product_16.webp",
-      desc: "Features intricate traditional Bomkai borders on the sleeves and neckline. Woven on a local wooden loom.",
-      spec: "Cotton-Silk Blend • Traditional Weave",
-    },
-    {
-      id: "PHG-KRT-004",
-      title: "Sambalpuri Stripe Weave Kurti",
-      cluster: "Bargarh District",
-      image: "/images/product_17.webp",
-      desc: "Simple, elegant kurti with handwoven stripes and subtle borders.",
-      spec: "100% Cotton • Soft & Breathable",
-    }
-  ];
+  const kurtiProducts = getProductsByCategory("kurtis");
 
   const handleOpenLightbox = (image: string, title: string, id: string) => {
     setActiveImage(image);
@@ -86,26 +55,28 @@ export default function KurtisCategoryPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {kurtiProducts.map((product, index) => {
             const encodedText = encodeURIComponent(
-              `Hi Handloom Garden, I am interested in the Kurti: ${product.title} (Product Code: ${product.id}). Please let me know the available sizes and price.`
+              `Hi Handloom Garden, I am interested in the Kurti: ${product.title} (Product Code: ${product.id}). Please let know the available sizes and price.`
             );
             const waLink = `${primaryWhatsAppBase}${encodedText}`;
 
             return (
               <ScrollReveal key={product.id} delay={(index % 4) * 100} className="flex flex-col group card-hover">
-                <div className="w-full aspect-[3/4] relative bg-cream-dark rounded-lg overflow-hidden mb-5 img-zoom">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                  <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full">
+                <div className="w-full aspect-[2/3] relative bg-cream-dark rounded-lg overflow-hidden mb-5 img-zoom">
+                  <Link href={`/product/${product.id}`} className="block w-full h-full">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </Link>
+                  <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full pointer-events-none">
                     {product.id}
                   </div>
                   <button
                     onClick={() => handleOpenLightbox(product.image, product.title, product.id)}
-                    className="absolute bottom-3 right-3 bg-white/90 text-charcoal p-2 hover:bg-maroon hover:text-cream transition-all duration-300 rounded-full shadow-md cursor-pointer"
+                    className="absolute bottom-3 right-3 bg-white/90 text-charcoal p-2 hover:bg-maroon hover:text-cream transition-all duration-300 rounded-full shadow-md cursor-pointer z-10"
                     aria-label={`View larger image of ${product.title}`}
                   >
                     <Maximize2 size={14} />
@@ -116,9 +87,11 @@ export default function KurtisCategoryPage() {
                   <span className="font-sans text-[9px] text-maroon tracking-widest uppercase block mb-1 font-bold">
                     {product.cluster}
                   </span>
-                  <h2 className="font-serif text-base text-charcoal leading-tight group-hover:text-maroon transition-colors">
-                    {product.title}
-                  </h2>
+                  <Link href={`/product/${product.id}`}>
+                    <h2 className="font-serif text-base text-charcoal leading-tight group-hover:text-maroon transition-colors">
+                      {product.title}
+                    </h2>
+                  </Link>
                 </div>
 
                 <p className="font-sans text-xs text-charcoal/60 leading-relaxed mb-3">
@@ -155,7 +128,7 @@ export default function KurtisCategoryPage() {
             <X size={24} />
           </button>
 
-          <div className="relative w-full max-w-2xl aspect-[3/4] max-h-[75vh] bg-charcoal rounded-lg overflow-hidden mb-6">
+          <div className="relative w-full max-w-2xl aspect-[2/3] max-h-[75vh] bg-charcoal rounded-lg overflow-hidden mb-6">
             <Image
               src={activeImage}
               alt={activeProductTitle}

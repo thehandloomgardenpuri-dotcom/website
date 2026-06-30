@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MessageSquare } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollReveal from "@/components/ScrollReveal";
+import { getProductsByCategory } from "@/data/products";
 
 export const metadata = {
   title: "Dress Materials & Unstitched Sets | Puri Handloom Garden",
@@ -12,33 +14,7 @@ export const metadata = {
 
 export default function DressesCategoryPage() {
   const primaryWhatsAppBase = "https://wa.me/919937157653?text=";
-
-  const dressProducts = [
-    {
-      id: "PHG-DRS-001",
-      title: "Nuapatna Woven Dress Material",
-      cluster: "Nuapatna Village",
-      image: "/images/product_3.webp",
-      desc: "Three-piece unstitched set with beautiful handwoven patterns. Comes with matching dupattas and bottom panels.",
-      spec: "Top (2.5m), Bottom (2m), Dupatta (2.2m) • Soft Cotton",
-    },
-    {
-      id: "PHG-DRS-002",
-      title: "Sambalpuri Cotton Dress Set",
-      cluster: "Bargarh District",
-      image: "/images/product_20.webp",
-      desc: "Comfortable unstitched cotton set. Features traditional double-ikat details and geometric designs.",
-      spec: "100% Cotton • Natural dye accents • Long-lasting quality",
-    },
-    {
-      id: "PHG-DRS-003",
-      title: "Khandua Silk Dress Set",
-      cluster: "Nuapatna Cooperatives",
-      image: "/images/product_21.webp",
-      desc: "Beautiful unstitched dress set featuring traditional borders on soft, shiny mulberry silk.",
-      spec: "Pure Silk • High-quality weave • Zari borders",
-    }
-  ];
+  const dressProducts = getProductsByCategory("dresses");
 
   return (
     <div className="relative min-h-screen bg-cream text-charcoal flex flex-col">
@@ -73,27 +49,31 @@ export default function DressesCategoryPage() {
 
             return (
               <ScrollReveal key={product.id} delay={(index % 3) * 100} className="flex flex-col group card-hover">
-                <div className="w-full aspect-[3/4] relative bg-cream-dark rounded-lg overflow-hidden mb-5 img-zoom">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    loading="lazy"
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full">
-                    {product.id}
+                <Link href={`/product/${product.id}`}>
+                  <div className="w-full aspect-[2/3] relative bg-cream-dark rounded-lg overflow-hidden mb-5 img-zoom">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      loading="lazy"
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full">
+                      {product.id}
+                    </div>
                   </div>
-                </div>
+                </Link>
 
                 <div className="mb-2">
                   <span className="font-sans text-[9px] text-maroon tracking-widest uppercase block mb-1 font-bold">
                     {product.cluster}
                   </span>
-                  <h2 className="font-serif text-lg text-charcoal leading-tight group-hover:text-maroon transition-colors">
-                    {product.title}
-                  </h2>
+                  <Link href={`/product/${product.id}`}>
+                    <h2 className="font-serif text-lg text-charcoal leading-tight group-hover:text-maroon transition-colors">
+                      {product.title}
+                    </h2>
+                  </Link>
                 </div>
 
                 <p className="font-sans text-xs text-charcoal/60 leading-relaxed mb-3">

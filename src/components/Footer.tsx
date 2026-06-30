@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import ShnkrDevBadge from "./ShnkrDevBadge";
 
 // Inline SVG icons for social media
 const FacebookIcon = () => (
@@ -183,12 +184,7 @@ export default function Footer() {
           <span className="font-sans text-[10px] text-white/30 tracking-wider">
             © 2026 Handloom Garden. All Rights Reserved.
           </span>
-          <span className="font-sans text-[10px] text-white/30 tracking-wider">
-            designed with ❤ by{" "}
-            <a href="https://shnkr.dev" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors">
-              shnkr.dev
-            </a>
-          </span>
+          <ShnkrDevBadge />
         </div>
       </div>
     </footer>

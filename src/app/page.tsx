@@ -126,12 +126,12 @@ export default function HomePage() {
       {/* ============================================ */}
       {/* SECTION 1: HERO */}
       {/* ============================================ */}
-      <section id="home" className="relative min-h-[85vh] lg:min-h-[90vh] bg-gradient-to-b from-cream to-cream-dark/30 flex items-center overflow-hidden border-b border-maroon/5">
+      <section id="home" className="relative min-h-[75vh] lg:min-h-[80vh] bg-gradient-to-b from-cream to-cream-dark/30 flex items-center overflow-hidden border-b border-maroon/5">
         {/* Subtle decorative elements */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-maroon/[0.02] blur-3xl -z-10" />
         <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-3xl -z-10" />
 
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-20 py-16 lg:py-24 relative z-10">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-20 py-10 lg:py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Column: Premium content presentation */}
@@ -290,7 +290,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Column: High-End Magazine Style Collage */}
-            <div className="lg:col-span-5 relative w-full h-[480px] md:h-[580px] lg:h-[600px] flex items-center justify-center animate-scale-in">
+            <div className="lg:col-span-5 relative w-full h-[400px] md:h-[500px] lg:h-[520px] flex items-center justify-center animate-scale-in">
               {/* Back Golden Pattern Ring */}
               <Parallax speed={-0.03} className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] rounded-full border border-gold/10 -z-10 animate-spin-slow" />
               
@@ -338,7 +338,7 @@ export default function HomePage() {
       {/* ============================================ */}
       {/* SECTION 2: OUR COLLECTIONS */}
       {/* ============================================ */}
-      <section id="collections" className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-cream">
+      <section id="collections" className="py-16 md:py-20 px-6 md:px-12 lg:px-20 bg-cream">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-3 tracking-wide hover:tracking-widest transition-all duration-700">
@@ -357,7 +357,7 @@ export default function HomePage() {
                 href={cat.href}
                 className="group flex flex-col card-hover"
               >
-                <div className="w-full aspect-[3/4] relative bg-cream-dark overflow-hidden rounded-lg img-zoom">
+                <div className="w-full aspect-[2/3] relative bg-cream-dark overflow-hidden rounded-lg img-zoom">
                   <Image
                     src={cat.image}
                     alt={`${cat.title} collection`}
@@ -393,7 +393,7 @@ export default function HomePage() {
           {/* Left — Image */}
           <ScrollReveal direction="left" className="relative">
             <Parallax speed={0.03} className="w-full h-full">
-              <div className="aspect-[3/4] relative rounded-lg overflow-hidden img-zoom shadow-xl border border-charcoal/5">
+              <div className="aspect-[2/3] relative rounded-lg overflow-hidden img-zoom shadow-xl border border-charcoal/5">
                 <Image
                   src="/images/product_7.webp"
                   alt="Woman wearing traditional handloom saree at Handloom Garden"
@@ -423,8 +423,13 @@ export default function HomePage() {
             {/* Silk Mark Certified Badge */}
             <div className="silk-mark-badge flex items-center gap-5 mb-8 max-w-sm">
               <div className="shrink-0">
-                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center border-2 border-gold">
-                  <span className="text-2xl">🏅</span>
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center border-2 border-gold overflow-hidden relative">
+                  <Image
+                    src="/silkmark.png"
+                    alt="Silk Mark Logo"
+                    fill
+                    className="object-contain p-0"
+                  />
                 </div>
               </div>
               <div>
@@ -516,7 +521,7 @@ export default function HomePage() {
 
           <ScrollReveal delay={100} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
             {galleryImages.map((img, index) => (
-              <div key={index} className="aspect-[3/4] relative rounded-lg overflow-hidden img-zoom shadow-md">
+              <div key={index} className="aspect-[2/3] relative rounded-lg overflow-hidden img-zoom shadow-md">
                 <Image
                   src={img}
                   alt={`Handloom Garden work showcase ${index + 1}`}

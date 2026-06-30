@@ -17,7 +17,7 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-6 md:px-12 lg:px-20">
+      <section className="relative pt-6 md:pt-10 lg:pt-10 pb-10 md:pb-16 px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal className="flex flex-col justify-center">
             <span className="text-[10px] uppercase tracking-[0.2em] text-maroon font-bold mb-3">
@@ -32,8 +32,8 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={100} className="relative">
-            <div className="aspect-[3/4] relative overflow-hidden rounded-lg shadow-xl img-zoom">
+          <ScrollReveal delay={100} className="relative w-full max-w-[350px] sm:max-w-[420px] mx-auto lg:mr-0">
+            <div className="aspect-[2/3] relative overflow-hidden rounded-lg shadow-xl img-zoom">
               <Image
                 src="/images/product_7.webp"
                 alt="Traditional Odisha Handloom weaving process"
@@ -74,8 +74,8 @@ export default function AboutPage() {
       {/* Supporting Local Weavers */}
       <section className="py-20 bg-maroon text-cream px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal className="order-2 lg:order-1">
-            <div className="aspect-[3/4] relative rounded-lg overflow-hidden shadow-xl img-zoom">
+          <ScrollReveal className="order-2 lg:order-1 w-full max-w-[350px] sm:max-w-[420px] mx-auto lg:ml-0">
+            <div className="aspect-[2/3] relative rounded-lg overflow-hidden shadow-xl img-zoom">
               <Image
                 src="/images/product_15.webp"
                 alt="Weaving master showcasing handloom textiles"

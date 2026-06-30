@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { MessageSquare, ChevronRight, Check, MapPin, Truck, RotateCcw } from "lucide-react";
+import { MessageSquare, ChevronRight, Check, MapPin, RotateCcw } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
@@ -22,7 +22,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
     (product.composition && product.composition.toLowerCase().includes("silk"));
 
   const encodedText = encodeURIComponent(
-    `Hi Handloom Garden, I am interested in the product: ${product.title} (Product Code: ${product.id}). Please share price, size options, and shipping details.`
+    `Hi Handloom Garden, I am interested in the product: ${product.title} (Product Code: ${product.id}). Please share price and size options.`
   );
   const waLink = `${primaryWhatsAppBase}${encodedText}`;
 
@@ -179,11 +179,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
               </div>
 
               {/* Store Logistics Highlights */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-charcoal/5 pt-6 text-xs font-sans text-charcoal/60">
-                <div className="flex items-center gap-2.5">
-                  <Truck size={16} className="text-maroon shrink-0" />
-                  <span>Worldwide Shipping</span>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-charcoal/5 pt-6 text-xs font-sans text-charcoal/60">
                 <div className="flex items-center gap-2.5">
                   <RotateCcw size={16} className="text-maroon shrink-0" />
                   <span>Artisanal Quality Check</span>

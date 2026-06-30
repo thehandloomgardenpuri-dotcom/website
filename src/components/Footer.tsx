@@ -61,14 +61,11 @@ export default function Footer() {
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-gold hover:text-charcoal transition-all duration-300" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61591189491062" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-gold hover:text-charcoal transition-all duration-300" aria-label="Facebook">
                 <FacebookIcon />
               </a>
               <a href="https://www.instagram.com/handloomgarden.puri/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-gold hover:text-charcoal transition-all duration-300" aria-label="Instagram">
                 <InstagramIcon />
-              </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-gold hover:text-charcoal transition-all duration-300" aria-label="YouTube">
-                <YoutubeIcon />
               </a>
             </div>
           </div>
@@ -128,17 +125,18 @@ export default function Footer() {
             </h4>
             <nav className="flex flex-col gap-2.5">
               {[
-                "Silk Mark Certification",
-                "Handloom Quality",
-                "Care Guide",
-                "Store Location",
+                { name: "Silk Mark Certification", href: "/#speciality" },
+                { name: "Handloom Quality", href: "/#our-work" },
+                { name: "Care Guide", href: "/about" },
+                { name: "Store Location", href: "/contact" },
               ].map((item) => (
-                <span
-                  key={item}
-                  className="font-sans text-xs text-white/50 cursor-default"
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="font-sans text-xs text-white/50 hover:text-gold transition-colors duration-300"
                 >
-                  {item}
-                </span>
+                  {item.name}
+                </Link>
               ))}
             </nav>
           </div>

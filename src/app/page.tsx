@@ -10,6 +10,125 @@ import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollReveal from "@/components/ScrollReveal";
 import Parallax from "@/components/Parallax";
 
+const HeroHeading = () => (
+  <>
+    {/* Est. / Location Tag with Lottie Animation */}
+    <div className="flex items-center gap-3 mb-4 animate-fade-up">
+      <svg
+        viewBox="0 0 100 100"
+        className="w-8 h-8 md:w-10 md:h-10 text-maroon animate-spin-slow"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Outer rim */}
+        <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="2.5" />
+        <circle cx="50" cy="50" r="41" stroke="currentColor" strokeWidth="1" strokeDasharray="3 2" />
+        <circle cx="50" cy="50" r="37" stroke="currentColor" strokeWidth="1.5" />
+
+        {/* Hub */}
+        <circle cx="50" cy="50" r="13" stroke="currentColor" strokeWidth="2" />
+        <circle cx="50" cy="50" r="8" stroke="currentColor" strokeWidth="1" />
+        <circle cx="50" cy="50" r="3" fill="currentColor" />
+
+        {/* 8 Main Spokes */}
+        <g transform="rotate(0 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+        <g transform="rotate(45 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+        <g transform="rotate(90 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+        <g transform="rotate(135 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+        <g transform="rotate(180 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+        <g transform="rotate(225 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+        <g transform="rotate(270 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+        <g transform="rotate(315 50 50)">
+          <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
+          <circle cx="50" cy="27" r="1.5" fill="currentColor" />
+        </g>
+
+        {/* 8 Secondary Spokes */}
+        <g transform="rotate(22.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+        <g transform="rotate(67.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+        <g transform="rotate(112.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+        <g transform="rotate(157.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+        <g transform="rotate(202.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+        <g transform="rotate(247.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+        <g transform="rotate(292.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+        <g transform="rotate(337.5 50 50)">
+          <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
+          <circle cx="50" cy="19" r="2" fill="currentColor" />
+        </g>
+      </svg>
+      <span className="font-sans text-[10px] md:text-xs font-bold tracking-[0.25em] text-maroon uppercase">
+        ESTD. 1978 • PURI, ODISHA
+      </span>
+    </div>
+
+    {/* Title */}
+    <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal leading-[1.15] mb-6 animate-letter-track font-normal">
+      <span className="text-gold-foil font-bold">Elegance</span> <br className="hidden sm:inline" />
+      <span className="italic font-serif text-maroon font-light">
+        Woven in
+      </span>{" "}
+      <span className="relative inline-block font-serif italic text-gold-foil font-semibold">
+        Tradition
+        {/* Subtle underline SVG for the word Tradition */}
+        <svg className="absolute -bottom-2 left-0 w-full h-2 text-gold-foil/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" strokeWidth="3" />
+        </svg>
+      </span>
+    </h1>
+
+    {/* Elegant divider */}
+    <div className="flex items-center gap-3 mb-6 animate-fade-up-delay-1">
+      <span className="ornament-line" />
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-gold">
+        <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6L8 0Z" fill="currentColor" />
+      </svg>
+      <span className="ornament-line" />
+    </div>
+  </>
+);
+
 export default function HomePage() {
   const categories = [
     {
@@ -132,123 +251,19 @@ export default function HomePage() {
         <div className="absolute -bottom-20 -left-20 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] rounded-full bg-gold/[0.03] blur-3xl -z-10" />
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 lg:py-16 relative z-10">
+          {/* Mobile-only heading, sits above the grid */}
+          <div className="lg:hidden w-full flex flex-col items-start text-left mb-6">
+            <HeroHeading />
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Column: Premium content presentation */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              {/* Est. / Location Tag with Lottie Animation */}
-              <div className="flex items-center gap-3 mb-4 animate-fade-up">
-                <svg
-                  viewBox="0 0 100 100"
-                  className="w-8 h-8 md:w-10 md:h-10 text-maroon animate-spin-slow"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Outer rim */}
-                  <circle cx="50" cy="50" r="46" stroke="currentColor" strokeWidth="2.5" />
-                  <circle cx="50" cy="50" r="41" stroke="currentColor" strokeWidth="1" strokeDasharray="3 2" />
-                  <circle cx="50" cy="50" r="37" stroke="currentColor" strokeWidth="1.5" />
-
-                  {/* Hub */}
-                  <circle cx="50" cy="50" r="13" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="50" cy="50" r="8" stroke="currentColor" strokeWidth="1" />
-                  <circle cx="50" cy="50" r="3" fill="currentColor" />
-
-                  {/* 8 Main Spokes */}
-                  <g transform="rotate(0 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(45 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(90 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(135 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(180 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(225 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(270 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(315 50 50)">
-                    <path d="M 48.5 37 L 49.2 24 L 50 15 L 50.8 24 L 51.5 37 Z" fill="currentColor" />
-                    <circle cx="50" cy="27" r="1.5" fill="currentColor" />
-                  </g>
-
-                  {/* 8 Secondary Spokes */}
-                  <g transform="rotate(22.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(67.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(112.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(157.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(202.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(247.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(292.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                  <g transform="rotate(337.5 50 50)">
-                    <line x1="50" y1="37" x2="50" y2="19" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="50" cy="19" r="2" fill="currentColor" />
-                  </g>
-                </svg>
-                <span className="font-sans text-[10px] md:text-xs font-bold tracking-[0.25em] text-maroon uppercase">
-                  ESTD. 1978 • PURI, ODISHA
-                </span>
-              </div>
-
-              {/* Title */}
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal leading-[1.15] mb-6 animate-letter-track font-normal">
-                <span className="text-gold-foil font-bold">Elegance</span> <br className="hidden sm:inline" />
-                <span className="italic font-serif text-maroon font-light">
-                  Woven in
-                </span>{" "}
-                <span className="relative inline-block font-serif italic text-gold-foil font-semibold">
-                  Tradition
-                  {/* Subtle underline SVG for the word Tradition */}
-                  <svg className="absolute -bottom-2 left-0 w-full h-2 text-gold-foil/30" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" strokeWidth="3" />
-                  </svg>
-                </span>
-              </h1>
-
-              {/* Elegant divider */}
-              <div className="flex items-center gap-3 mb-6 animate-fade-up-delay-1">
-                <span className="ornament-line" />
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-gold">
-                  <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6L8 0Z" fill="currentColor" />
-                </svg>
-                <span className="ornament-line" />
+            <div className="lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1">
+              
+              {/* Desktop-only heading, sits inside the left column */}
+              <div className="hidden lg:flex flex-col items-start w-full text-left">
+                <HeroHeading />
               </div>
 
               {/* Description */}
@@ -290,7 +305,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Column: High-End Magazine Style Collage */}
-            <div className="lg:col-span-5 relative w-full h-[420px] sm:h-[450px] md:h-[500px] lg:h-[520px] flex items-center justify-center animate-scale-in">
+            <div className="lg:col-span-5 relative w-full h-[420px] sm:h-[450px] md:h-[500px] lg:h-[520px] flex items-center justify-center animate-scale-in order-1 lg:order-2">
               {/* Back Golden Pattern Ring */}
               <Parallax speed={-0.03} className="absolute w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px] rounded-full border border-gold/10 -z-10 animate-spin-slow" />
               

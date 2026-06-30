@@ -40,7 +40,7 @@ export default function SareesCategoryPage() {
 
       {/* Grid Section */}
       <section className="py-16 px-6 md:px-12 lg:px-20 flex-grow">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-x-8 sm:gap-y-14">
           {sareeProducts.map((product, index) => {
             const encodedText = encodeURIComponent(
               `Hi Handloom Garden, I am interested in the Saree: ${product.title} (Product Code: ${product.id}). Please let me know its price and availability.`
@@ -56,7 +56,7 @@ export default function SareesCategoryPage() {
                       alt={product.title}
                       fill
                       className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full">
                       {product.id}

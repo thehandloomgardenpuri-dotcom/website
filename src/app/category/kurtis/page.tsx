@@ -52,7 +52,7 @@ export default function KurtisCategoryPage() {
 
       {/* Grid */}
       <section className="py-16 px-6 md:px-12 lg:px-20 flex-grow">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
           {kurtiProducts.map((product, index) => {
             const encodedText = encodeURIComponent(
               `Hi Handloom Garden, I am interested in the Kurti: ${product.title} (Product Code: ${product.id}). Please let know the available sizes and price.`
@@ -68,7 +68,7 @@ export default function KurtisCategoryPage() {
                       alt={product.title}
                       fill
                       className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </Link>
                   <div className="absolute top-3 left-3 bg-maroon/90 backdrop-blur-sm text-cream px-3 py-1 text-[8px] tracking-widest uppercase font-bold rounded-full pointer-events-none">

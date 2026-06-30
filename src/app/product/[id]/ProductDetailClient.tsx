@@ -34,7 +34,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
       <Header />
 
       {/* Breadcrumb Navigation */}
-      <nav className="pt-24 pb-4 px-6 md:px-12 lg:px-20 bg-cream border-b border-charcoal/5">
+      <nav className="pt-20 sm:pt-24 pb-4 px-4 sm:px-6 md:px-12 lg:px-20 bg-cream border-b border-charcoal/5">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs font-sans text-charcoal/50">
           <Link href="/" className="hover:text-maroon transition-colors">Home</Link>
           <ChevronRight size={12} />
@@ -82,7 +82,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
               </div>
 
               {/* Title */}
-              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6 font-normal">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6 font-normal">
                 {product.title}
               </h1>
 
@@ -214,7 +214,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
               <div className="ornament-line-wide mt-3" />
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
               {relatedProducts.map((p, idx) => (
                 <ScrollReveal key={p.id} delay={idx * 100} className="flex flex-col group card-hover">
                   <Link href={`/product/${p.id}`}>
@@ -224,7 +224,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
                         alt={p.title}
                         fill
                         className="object-cover object-top"
-                        sizes="(max-width: 768px) 100vw, 25vw"
+                        sizes="(max-width: 768px) 50vw, 25vw"
                       />
                       <div className="absolute top-2.5 left-2.5 bg-maroon/90 backdrop-blur-sm text-cream px-2.5 py-0.5 text-[8px] tracking-widest uppercase font-bold rounded-full">
                         {p.id}

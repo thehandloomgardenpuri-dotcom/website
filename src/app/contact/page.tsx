@@ -87,7 +87,7 @@ export default function ContactPage() {
 
             {/* Map Embed */}
             <div className="w-full">
-              <div className="border border-charcoal/10 aspect-video w-full bg-cream-dark relative overflow-hidden rounded-lg">
+              <div className="border border-charcoal/10 aspect-[4/3] sm:aspect-video w-full bg-cream-dark relative overflow-hidden rounded-lg">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.838501258674!2d85.81665427606399!3d20.182470781263593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c3fb45b5db3b%3A0xe54e6063b51b32d!2sSwargadwar%20Rd%2C%20Puri%2C%20Odisha!5e0!3m2!1sen!2sin!4v1719380000000!5m2!1sen!2sin"
                   className="w-full h-full border-0 grayscale opacity-90 hover:grayscale-0 transition-all duration-700"
@@ -118,7 +118,7 @@ export default function ContactPage() {
                     name="name"
                     required
                     placeholder="Full Name"
-                    className="w-full bg-transparent border-b border-white/20 py-4 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none"
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-base text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none"
                   />
                 </div>
 
@@ -128,14 +128,14 @@ export default function ContactPage() {
                     name="phone"
                     required
                     placeholder="Contact Number"
-                    className="w-full bg-transparent border-b border-white/20 py-4 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none"
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-base text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none"
                   />
                   <input
                     type="email"
                     name="email"
                     required
                     placeholder="Email Address"
-                    className="w-full bg-transparent border-b border-white/20 py-4 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none"
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-base text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none"
                   />
                 </div>
 
@@ -144,7 +144,7 @@ export default function ContactPage() {
                     name="product_interest"
                     required
                     defaultValue=""
-                    className="w-full bg-transparent border-b border-white/20 py-4 text-sm text-white/70 focus:outline-none focus:border-gold transition-all duration-300 rounded-none cursor-pointer"
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-base text-white/70 focus:outline-none focus:border-gold transition-all duration-300 rounded-none cursor-pointer"
                   >
                     <option value="" disabled className="bg-maroon-dark text-white">
                       Product Category Interest
@@ -164,7 +164,7 @@ export default function ContactPage() {
                     rows={4}
                     required
                     placeholder="Describe what you are looking for..."
-                    className="w-full bg-transparent border-b border-white/20 py-4 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none resize-none"
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-base text-white placeholder-white/40 focus:outline-none focus:border-gold transition-all duration-300 rounded-none resize-none"
                   />
                 </div>
 

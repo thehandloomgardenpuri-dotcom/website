@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,18 @@ export default function Header() {
   const [isMobileCollectionsOpen, setIsMobileCollectionsOpen] = useState(false);
   const [isCollectionsHovered, setIsCollectionsHovered] = useState(false);
   const pathname = usePathname();
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const navigationLinks = [
     { name: "Home", href: "/" },
@@ -30,7 +42,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-cream/95 backdrop-blur-md shadow-sm border-b border-maroon/5 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <div className="relative h-14 w-14 md:h-16 md:w-16">
@@ -145,7 +157,7 @@ export default function Header() {
 
       {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-cream border-t border-charcoal/10 shadow-lg z-40 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden absolute top-16 sm:top-20 left-0 w-full bg-cream border-t border-charcoal/10 shadow-lg z-40 max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto">
           <div className="flex flex-col px-6 py-6 gap-1">
             {navigationLinks.map((link) => {
               const isActive = link.hasDropdown

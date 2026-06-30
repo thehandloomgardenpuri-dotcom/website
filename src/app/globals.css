@@ -218,8 +218,8 @@ body {
   gap: 8px;
   background-color: #8B1A2B;
   color: #FDF8F0;
-  padding: 14px 32px;
-  font-size: 12px;
+  padding: 12px 24px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -228,11 +228,20 @@ body {
   cursor: pointer;
 }
 
-.btn-maroon:hover {
-  background-color: #6E1422;
-  border-color: #6E1422;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 26, 43, 0.3);
+@media (min-width: 768px) {
+  .btn-maroon {
+    padding: 14px 32px;
+    font-size: 12px;
+  }
+}
+
+@media (hover: hover) {
+  .btn-maroon:hover {
+    background-color: #6E1422;
+    border-color: #6E1422;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 26, 43, 0.3);
+  }
 }
 
 /* Outline button */
@@ -242,7 +251,7 @@ body {
   gap: 8px;
   background-color: transparent;
   color: #8B1A2B;
-  padding: 12px 28px;
+  padding: 10px 20px;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -252,11 +261,19 @@ body {
   cursor: pointer;
 }
 
-.btn-outline-maroon:hover {
-  background-color: #8B1A2B;
-  color: #FDF8F0;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 26, 43, 0.3);
+@media (min-width: 768px) {
+  .btn-outline-maroon {
+    padding: 12px 28px;
+  }
+}
+
+@media (hover: hover) {
+  .btn-outline-maroon:hover {
+    background-color: #8B1A2B;
+    color: #FDF8F0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 26, 43, 0.3);
+  }
 }
 
 /* Premium link hover underline */
@@ -288,17 +305,19 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Hover card lift effect */
+/* Hover card lift effect — only on devices that support hover */
 .card-hover {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(28, 26, 23, 0.12);
+@media (hover: hover) {
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(28, 26, 23, 0.12);
+  }
 }
 
-/* Image zoom on hover */
+/* Image zoom on hover — only on devices that support hover */
 .img-zoom {
   overflow: hidden;
 }
@@ -308,9 +327,11 @@ body {
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.img-zoom:hover img,
-.img-zoom:hover > div {
-  transform: scale(1.05);
+@media (hover: hover) {
+  .img-zoom:hover img,
+  .img-zoom:hover > div {
+    transform: scale(1.05);
+  }
 }
 
 /* Testimonial card */
@@ -347,10 +368,17 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   padding: 14px 20px;
-  font-size: 13px;
+  font-size: 16px; /* 16px prevents iOS zoom on focus */
   outline: none;
   transition: all 0.3s ease;
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
+}
+
+@media (max-width: 767px) {
+  .newsletter-input {
+    max-width: 100%;
+  }
 }
 
 .newsletter-input::placeholder {
@@ -507,4 +535,22 @@ body {
 
 .animate-letter-track {
   animation: letter-track 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* iOS safe area support */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .fixed {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Prevent iOS zoom on form inputs */
+@media screen and (max-width: 767px) {
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }

@@ -126,12 +126,12 @@ export default function HomePage() {
       {/* ============================================ */}
       {/* SECTION 1: HERO */}
       {/* ============================================ */}
-      <section id="home" className="relative min-h-[75vh] lg:min-h-[80vh] bg-gradient-to-b from-cream to-cream-dark/30 flex items-center overflow-hidden border-b border-maroon/5">
+      <section id="home" className="relative min-h-[auto] sm:min-h-[75vh] lg:min-h-[80vh] bg-gradient-to-b from-cream to-cream-dark/30 flex items-center overflow-hidden border-b border-maroon/5">
         {/* Subtle decorative elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-maroon/[0.02] blur-3xl -z-10" />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-gold/[0.03] blur-3xl -z-10" />
+        <div className="absolute top-0 right-0 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] rounded-full bg-maroon/[0.02] blur-3xl -z-10" />
+        <div className="absolute -bottom-20 -left-20 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] rounded-full bg-gold/[0.03] blur-3xl -z-10" />
 
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-20 py-10 lg:py-16 relative z-10">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 lg:py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Column: Premium content presentation */}
@@ -257,7 +257,7 @@ export default function HomePage() {
               </p>
 
               {/* Premium Luxury Features List (Replacing generic boxes) */}
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-10 w-full max-w-md animate-fade-up-delay-2">
+              <div className="grid grid-cols-2 gap-y-3 gap-x-4 sm:gap-y-4 sm:gap-x-8 mb-8 sm:mb-10 w-full max-w-md animate-fade-up-delay-2">
                 {[
                   { title: "Pure Silk Mark", desc: "100% Certified authentic silk" },
                   { title: "Artisan Direct", desc: "Supporting local weaving heritage" },
@@ -290,12 +290,12 @@ export default function HomePage() {
             </div>
 
             {/* Right Column: High-End Magazine Style Collage */}
-            <div className="lg:col-span-5 relative w-full h-[400px] md:h-[500px] lg:h-[520px] flex items-center justify-center animate-scale-in">
+            <div className="lg:col-span-5 relative w-full h-[420px] sm:h-[450px] md:h-[500px] lg:h-[520px] flex items-center justify-center animate-scale-in">
               {/* Back Golden Pattern Ring */}
-              <Parallax speed={-0.03} className="absolute w-[360px] h-[360px] md:w-[440px] md:h-[440px] rounded-full border border-gold/10 -z-10 animate-spin-slow" />
+              <Parallax speed={-0.03} className="absolute w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px] rounded-full border border-gold/10 -z-10 animate-spin-slow" />
               
-              {/* Main Saree Model Frame (Backwards/Center) */}
-              <Parallax speed={0.03} className="absolute right-4 top-4 w-[240px] h-[340px] md:w-[280px] md:h-[400px] lg:w-[300px] lg:h-[430px] rounded-xl overflow-hidden shadow-2xl border-4 border-white/85 ring-1 ring-gold/20 z-10 card-hover img-zoom animate-fade-in">
+              {/* Main Saree Model Frame (Center-Right) */}
+              <Parallax speed={0.03} className="absolute right-[10%] sm:right-4 top-0 sm:top-4 w-[55%] sm:w-[240px] h-[320px] sm:h-[340px] md:w-[280px] md:h-[400px] lg:w-[300px] lg:h-[430px] rounded-xl overflow-hidden shadow-2xl border-4 border-white/85 ring-1 ring-gold/20 z-10 card-hover img-zoom animate-fade-in">
                 <Image
                   src="/images/product_6.webp"
                   alt="Traditional Odia Saree Masterpiece"
@@ -306,8 +306,8 @@ export default function HomePage() {
                 />
               </Parallax>
 
-              {/* Overlay Saree Model Frame (Forwards/Left Offset) */}
-              <Parallax speed={0.07} className="absolute left-4 bottom-4 w-[180px] h-[260px] md:w-[220px] md:h-[310px] lg:w-[240px] lg:h-[340px] rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gold/30 z-20 card-hover img-zoom animate-fade-in">
+              {/* Overlay Saree Model Frame (Bottom-Left, overlapping into main) */}
+              <Parallax speed={0.07} className="absolute left-[5%] sm:left-4 bottom-2 sm:bottom-4 w-[45%] sm:w-[180px] h-[250px] sm:h-[260px] md:w-[220px] md:h-[310px] lg:w-[240px] lg:h-[340px] rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gold/30 z-20 card-hover img-zoom animate-fade-in">
                 <Image
                   src="/images/product_11.webp"
                   alt="Elegant Traditional Silk Details"
@@ -318,7 +318,7 @@ export default function HomePage() {
               </Parallax>
 
               {/* Floating Luxury Gold Badge */}
-              <Parallax speed={0.05} className="absolute -right-2 bottom-20 md:bottom-28 bg-gradient-to-br from-gold to-gold-light text-maroon w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center text-center p-2 shadow-xl border-2 border-cream z-30 animate-bounce-slow">
+              <Parallax speed={0.05} className="absolute right-[5%] sm:-right-2 bottom-8 sm:bottom-20 md:bottom-28 bg-gradient-to-br from-gold to-gold-light text-maroon w-[72px] h-[72px] sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center text-center p-2 shadow-xl border-2 border-cream z-30 animate-bounce-slow">
                 <span className="text-[7px] md:text-[8px] font-bold tracking-widest uppercase leading-none text-maroon/90">
                   100%
                 </span>
@@ -350,7 +350,7 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <ScrollReveal delay={100} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {categories.map((cat, index) => (
               <Link
                 key={index}
@@ -481,11 +481,11 @@ export default function HomePage() {
             <div className="ornament-line-wide" />
           </ScrollReveal>
 
-          <ScrollReveal delay={100} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <ScrollReveal delay={100} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-6">
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center p-6 rounded-xl bg-white border border-charcoal/5 card-hover"
+                className="flex flex-col items-center text-center p-3 sm:p-6 rounded-xl bg-white border border-charcoal/5 card-hover"
               >
                 <div className="w-16 h-16 rounded-full bg-maroon/5 flex items-center justify-center mb-4">
                   {item.icon}
@@ -562,7 +562,7 @@ export default function HomePage() {
               Every weave tells a story. We work closely with skilled weavers and artisans to bring you creations that reflect our rich culture and timeless beauty.
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 "Handpicked Fabrics",
                 "Vibrant Colors",
@@ -612,7 +612,7 @@ export default function HomePage() {
 
           <ScrollReveal delay={100} className="relative max-w-4xl mx-auto">
             {/* Carousel Container */}
-            <div className="overflow-hidden bg-white/70 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-charcoal/5 shadow-xl relative min-h-[280px] flex items-center justify-center transition-all duration-500">
+            <div className="overflow-hidden bg-white/70 backdrop-blur-md rounded-2xl p-5 sm:p-8 md:p-12 border border-charcoal/5 shadow-xl relative min-h-[220px] sm:min-h-[280px] flex items-center justify-center transition-all duration-500">
               
               {/* Active testimonial card */}
               <div className="flex flex-col items-center text-center max-w-2xl mx-auto transition-opacity duration-500 ease-in-out">
@@ -652,7 +652,7 @@ export default function HomePage() {
             {/* Navigation buttons */}
             <button
               onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-              className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:text-maroon hover:bg-white shadow-lg active:scale-95 transition-all cursor-pointer z-10"
+              className="absolute left-1 sm:left-0 md:-left-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-cream border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:text-maroon hover:bg-white shadow-lg active:scale-95 transition-all cursor-pointer z-10"
               aria-label="Previous Testimonial"
             >
               <ChevronLeft size={20} />
@@ -660,7 +660,7 @@ export default function HomePage() {
 
             <button
               onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-              className="absolute right-0 md:-right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:text-maroon hover:bg-white shadow-lg active:scale-95 transition-all cursor-pointer z-10"
+              className="absolute right-1 sm:right-0 md:-right-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-cream border border-charcoal/10 flex items-center justify-center text-charcoal/60 hover:text-maroon hover:bg-white shadow-lg active:scale-95 transition-all cursor-pointer z-10"
               aria-label="Next Testimonial"
             >
               <ChevronRight size={20} />
@@ -688,7 +688,7 @@ export default function HomePage() {
       {/* ============================================ */}
       {/* SECTION 8: NEWSLETTER / CTA BAR */}
       {/* ============================================ */}
-      <section className="py-6 px-6 md:px-12 bg-maroon">
+      <section className="py-4 sm:py-6 px-4 sm:px-6 md:px-12 bg-maroon">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left — Logo + Text */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -723,7 +723,7 @@ export default function HomePage() {
           </div>
 
           {/* Right — Phone + Submit */}
-          <div className="flex items-center gap-3 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
             <input
               type="tel"
               placeholder="Enter your phone number"

@@ -5,7 +5,7 @@ export default function WhatsAppWidget() {
   const instagramUrl = "https://www.instagram.com/handloomgarden.puri/";
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-center gap-2 sm:gap-3">
       {/* Chat with us label */}
       <span className="font-sans text-[8px] tracking-widest uppercase text-charcoal/40 hidden md:block">
         Chat with us
@@ -16,7 +16,7 @@ export default function WhatsAppWidget() {
         href={primaryWhatsApp}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 relative group"
+        className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 relative group"
         aria-label="Chat on WhatsApp"
       >
         <span className="sonar-wave sonar-wave-whatsapp" />
@@ -33,7 +33,7 @@ export default function WhatsAppWidget() {
         href={instagramUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 relative group"
+        className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 relative group"
         aria-label="Follow on Instagram"
       >
         <span className="sonar-wave sonar-wave-instagram" />

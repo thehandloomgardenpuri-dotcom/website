@@ -191,10 +191,10 @@ export default function HomePage() {
   ];
 
   const galleryImages = [
-    "/images/product_11.webp",
+    "/images/product_1.webp",
     "/images/product_12.webp",
-    "/images/product_13.webp",
-    "/images/product_14.webp",
+    "/images/product_8.webp",
+    "/images/product_10.webp",
     "/images/product_15.webp",
   ];
 
@@ -205,7 +205,7 @@ export default function HomePage() {
       quote: "The saree collection is just amazing! The quality and such beautiful designs.",
     },
     {
-      image: "/images/product_18.webp",
+      image: "/images/product_21.webp",
       name: "Amarpreet S., Bhubaneswar",
       quote: "We got our bridal lehenga from Handloom Garden. Excellent service and stunning collection!",
     },
@@ -324,7 +324,7 @@ export default function HomePage() {
               {/* Overlay Saree Model Frame (Bottom-Left, overlapping into main) */}
               <Parallax speed={0.07} className="absolute left-[5%] sm:left-4 bottom-2 sm:bottom-4 w-[45%] sm:w-[180px] h-[250px] sm:h-[260px] md:w-[220px] md:h-[310px] lg:w-[240px] lg:h-[340px] rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gold/30 z-20 card-hover img-zoom animate-fade-in">
                 <Image
-                  src="/images/product_11.webp"
+                  src="/images/product_7.webp"
                   alt="Elegant Traditional Silk Details"
                   fill
                   className="object-cover object-top"

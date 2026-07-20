@@ -21,8 +21,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Produc
     product.spec?.toLowerCase().includes("silk") ||
     (product.composition && product.composition.toLowerCase().includes("silk"));
 
+  const imageUrl = `https://www.handloomgarden.com${product.image}`;
   const encodedText = encodeURIComponent(
-    `Hi Handloom Garden, I am interested in the product: ${product.title} (Product Code: ${product.id}). Please share price and size options.`
+    `Hi Handloom Garden, I am interested in the product: ${product.title} (Product Code: ${product.id}).\n\nImage: ${imageUrl}\n\nPlease share price and size options.`
   );
   const waLink = `${primaryWhatsAppBase}${encodedText}`;
 

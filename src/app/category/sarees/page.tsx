@@ -42,8 +42,9 @@ export default function SareesCategoryPage() {
       <section className="py-16 px-6 md:px-12 lg:px-20 flex-grow">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-x-8 sm:gap-y-14">
           {sareeProducts.map((product, index) => {
+            const imageUrl = `https://www.handloomgarden.com${product.image}`;
             const encodedText = encodeURIComponent(
-              `Hi Handloom Garden, I am interested in the Saree: ${product.title} (Product Code: ${product.id}). Please let me know its price and availability.`
+              `Hi Handloom Garden, I am interested in the Saree: ${product.title} (Product Code: ${product.id}).\n\nImage: ${imageUrl}\n\nPlease let me know its price and availability.`
             );
             const waLink = `${primaryWhatsAppBase}${encodedText}`;
 

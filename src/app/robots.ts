@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://purihandloomgarden.com/sitemap.xml",
+    sitemap: "https://www.handloomgarden.com/sitemap.xml",
   };
 }

@@ -42,8 +42,9 @@ export default function BedCoversCategoryPage() {
       <section className="py-16 px-6 md:px-12 lg:px-20 flex-grow">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {bedCoverProducts.map((product, index) => {
+            const imageUrl = `https://www.handloomgarden.com${product.image}`;
             const encodedText = encodeURIComponent(
-              `Hi Handloom Garden, I am interested in the Bed Cover: ${product.title} (Product Code: ${product.id}). Please let me know price and size availability.`
+              `Hi Handloom Garden, I am interested in the Bed Cover: ${product.title} (Product Code: ${product.id}).\n\nImage: ${imageUrl}\n\nPlease let me know price and size availability.`
             );
             const waLink = `${primaryWhatsAppBase}${encodedText}`;
 

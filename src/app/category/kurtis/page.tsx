@@ -54,8 +54,9 @@ export default function KurtisCategoryPage() {
       <section className="py-16 px-6 md:px-12 lg:px-20 flex-grow">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
           {kurtiProducts.map((product, index) => {
+            const imageUrl = `https://www.handloomgarden.com${product.image}`;
             const encodedText = encodeURIComponent(
-              `Hi Handloom Garden, I am interested in the Kurti: ${product.title} (Product Code: ${product.id}). Please let know the available sizes and price.`
+              `Hi Handloom Garden, I am interested in the Kurti: ${product.title} (Product Code: ${product.id}).\n\nImage: ${imageUrl}\n\nPlease let know the available sizes and price.`
             );
             const waLink = `${primaryWhatsAppBase}${encodedText}`;
 
@@ -147,7 +148,7 @@ export default function KurtisCategoryPage() {
             </h3>
             <a
               href={`${primaryWhatsAppBase}${encodeURIComponent(
-                `Hi Handloom Garden, I am looking at ${activeProductTitle} (${activeProductId}) and would like to ask about price and sizes.`
+                `Hi Handloom Garden, I am looking at ${activeProductTitle} (${activeProductId}).\n\nImage: https://www.handloomgarden.com${activeImage}\n\nI would like to ask about price and sizes.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"

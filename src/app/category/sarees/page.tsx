@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 export default function SareesCategoryPage() {
-  const primaryWhatsAppBase = "https://wa.me/919937157653?text=";
+  const primaryWhatsAppBase = "https://wa.me/919937937653?text=";
   const sareeProducts = getProductsByCategory("sarees");
 
   return (

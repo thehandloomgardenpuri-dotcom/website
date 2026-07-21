@@ -25,7 +25,7 @@ const YoutubeIcon = () => (
 );
 
 export default function Footer() {
-  const primaryWhatsApp = "https://wa.me/919937157653?text=Hi%20Handloom%20Garden,%20I%20am%20visiting%20your%20website%20and%20would%20like%20to%20enquire.";
+  const primaryWhatsApp = "https://wa.me/919937937653?text=Hi%20Handloom%20Garden,%20I%20am%20visiting%20your%20website%20and%20would%20like%20to%20enquire.";
   const emailMailto = "mailto:rajeshmullick.puri@gmail.com";
   const landlineCall = "tel:06752220037";
 
@@ -159,7 +159,7 @@ export default function Footer() {
               </a>
               <a href={primaryWhatsApp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 font-sans text-xs text-white/50 hover:text-gold transition-colors">
                 <Phone size={14} className="text-gold shrink-0" />
-                +91 99371 57653
+                +91 99379 37653
               </a>
               <a href={emailMailto} className="flex items-center gap-2.5 font-sans text-xs text-white/50 hover:text-gold transition-colors">
                 <Mail size={14} className="text-gold shrink-0" />

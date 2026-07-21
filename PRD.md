@@ -82,7 +82,7 @@ The platform is strictly constrained to **8 completely separate routes**. It avo
 * **Functional Intent:** Exhibit the premium saree collections using an absolute portfolio layout.
 * **Grid Layout:** A clean, multi-column image grid gallery utilizing dynamic aspect ratios.
 * **Card Specifications:** Each card must prominently display a high-resolution product image, descriptive title (e.g., *Sambalpuri Silk Saree*, *Bomkai Saree*), a short text description, and a clear call-to-action.
-* **The Conversion Component:** Individual item cards feature an explicit, hardcoded WhatsApp CTA string. Clicking the button triggers a WhatsApp link targeting the primary endpoint, pre-populating a specific message (e.g., `https://wa.me/919937157653?text=Hi,%20I%20am%20interested%20in%20the%20Sambalpuri%20Silk%20Saree%20seen%20on%20your%20website.`).
+* **The Conversion Component:** Individual item cards feature an explicit, hardcoded WhatsApp CTA string. Clicking the button triggers a WhatsApp link targeting the primary endpoint, pre-populating a specific message (e.g., `https://wa.me/919937937653?text=Hi,%20I%20am%20interested%20in%20the%20Sambalpuri%20Silk%20Saree%20seen%20on%20your%20website.`).
 
 ### Page 4: Product Category – Kurtis Route (`/category/kurtis`)
 
@@ -131,7 +131,7 @@ These elements run globally across all 8 routes to maintain a cohesive user expe
 ### 5.2 Global Conversions (The Floating WhatsApp Component)
 
 * A persistent, float-positioned interactive action anchor pinned to the bottom right of all viewports.
-* Hardcoded to target the client's verified WhatsApp business account number: **+91 99371 57653**.
+* Hardcoded to target the client's verified WhatsApp business account number: **+91 99379 37653**.
 
 ### 5.3 On-Page Search Engine Optimization (SEO)
 

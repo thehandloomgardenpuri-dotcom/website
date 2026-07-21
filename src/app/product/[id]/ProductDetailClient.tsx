@@ -15,7 +15,7 @@ interface ProductDetailClientProps {
 }
 
 export default function ProductDetailClient({ product, relatedProducts }: ProductDetailClientProps) {
-  const primaryWhatsAppBase = "https://wa.me/919937157653?text=";
+  const primaryWhatsAppBase = "https://wa.me/919937937653?text=";
   const isSilk =
     product.title.toLowerCase().includes("silk") ||
     product.spec?.toLowerCase().includes("silk") ||

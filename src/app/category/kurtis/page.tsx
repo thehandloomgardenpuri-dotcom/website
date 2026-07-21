@@ -11,7 +11,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { getProductsByCategory } from "@/data/products";
 
 export default function KurtisCategoryPage() {
-  const primaryWhatsAppBase = "https://wa.me/919937157653?text=";
+  const primaryWhatsAppBase = "https://wa.me/919937937653?text=";
   const [activeImage, setActiveImage] = useState<string | null>(null);
   const [activeProductTitle, setActiveProductTitle] = useState<string>("");
   const [activeProductId, setActiveProductId] = useState<string>("");

@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppWidget() {
-  const primaryWhatsApp = "https://wa.me/919937157653?text=Hi%20Handloom%20Garden,%20I%20am%20visiting%20your%20website%20and%20would%20like%20to%20enquire.";
+  const primaryWhatsApp = "https://wa.me/919937937653?text=Hi%20Handloom%20Garden,%20I%20am%20visiting%20your%20website%20and%20would%20like%20to%20enquire.";
   const instagramUrl = "https://www.instagram.com/handloomgarden.puri/";
 
   return (

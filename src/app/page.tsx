@@ -192,7 +192,7 @@ export default function HomePage() {
 
   const galleryImages = [
     "/images/product_19.webp",
-    "/images/product_12.webp",
+    "/Model_Shots/img_0224_model4.webp",
     "/images/product_20.webp",
     "/images/product_10.webp",
     "/images/product_16.webp",
@@ -410,7 +410,7 @@ export default function HomePage() {
             <Parallax speed={0.03} className="w-full h-full">
               <div className="aspect-[2/3] relative rounded-lg overflow-hidden img-zoom shadow-xl border border-charcoal/5">
                 <Image
-                  src="/images/product_7.webp"
+                  src="/images/product_16.webp"
                   alt="Woman wearing traditional handloom saree at Handloom Garden"
                   fill
                   className="object-cover object-top"
@@ -601,7 +601,7 @@ export default function HomePage() {
             <Parallax speed={0.03} className="w-full h-full">
               <div className="aspect-[4/5] relative rounded-lg overflow-hidden img-zoom shadow-xl border border-charcoal/5">
                 <Image
-                  src="/images/product_8.webp"
+                  src="/images/product_19.webp"
                   alt="Handloom artisan weaving traditional fabric"
                   fill
                   className="object-cover object-top"

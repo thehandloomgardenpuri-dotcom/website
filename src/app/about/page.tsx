@@ -35,7 +35,7 @@ export default function AboutPage() {
           <ScrollReveal delay={100} className="relative w-full max-w-[350px] sm:max-w-[420px] mx-auto lg:mr-0">
             <div className="aspect-[2/3] relative overflow-hidden rounded-lg shadow-xl img-zoom">
               <Image
-                src="/images/product_7.webp"
+                src="/images/product_16.webp"
                 alt="Traditional Odisha Handloom weaving process"
                 fill
                 className="object-cover"
@@ -77,7 +77,7 @@ export default function AboutPage() {
           <ScrollReveal className="order-2 lg:order-1 w-full max-w-[350px] sm:max-w-[420px] mx-auto lg:ml-0">
             <div className="aspect-[2/3] relative rounded-lg overflow-hidden shadow-xl img-zoom">
               <Image
-                src="/images/product_15.webp"
+                src="/images/product_19.webp"
                 alt="Weaving master showcasing handloom textiles"
                 fill
                 className="object-cover object-top"

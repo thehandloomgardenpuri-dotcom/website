@@ -134,25 +134,25 @@ export default function HomePage() {
     {
       title: "Sarees",
       href: "/category/sarees",
-      image: "/images/product_1.webp",
+      image: "/images/product_16.webp",
       description: "Timeless weaves that celebrate Indian heritage.",
     },
     {
       title: "Lehenga",
       href: "/category/dresses",
-      image: "/images/product_6.webp",
+      image: "/images/product_19.webp",
       description: "Graceful lehengas for weddings and celebrations.",
     },
     {
       title: "Kurti",
       href: "/category/kurtis",
-      image: "/images/product_4.webp",
+      image: "/images/product_10.webp",
       description: "Elegant kurtis for everyday comfort and style.",
     },
     {
       title: "Ethnic Wear",
       href: "/category/scarves",
-      image: "/images/product_2.webp",
+      image: "/images/product_20.webp",
       description: "Designer ethnic wear for your special occasion.",
     },
   ];
@@ -191,21 +191,21 @@ export default function HomePage() {
   ];
 
   const galleryImages = [
-    "/images/product_1.webp",
+    "/images/product_19.webp",
     "/images/product_12.webp",
-    "/images/product_8.webp",
+    "/images/product_20.webp",
     "/images/product_10.webp",
-    "/images/product_15.webp",
+    "/images/product_16.webp",
   ];
 
   const testimonials = [
     {
-      image: "/images/product_17.webp",
+      image: "/images/product_19.webp",
       name: "Priyanka S., Puri",
       quote: "The saree collection is just amazing! The quality and such beautiful designs.",
     },
     {
-      image: "/images/product_21.webp",
+      image: "/images/product_20.webp",
       name: "Amarpreet S., Bhubaneswar",
       quote: "We got our bridal lehenga from Handloom Garden. Excellent service and stunning collection!",
     },
@@ -312,7 +312,7 @@ export default function HomePage() {
               {/* Main Saree Model Frame (Center-Right) */}
               <Parallax speed={0.03} className="absolute right-[10%] sm:right-4 top-0 sm:top-4 w-[55%] sm:w-[240px] h-[320px] sm:h-[340px] md:w-[280px] md:h-[400px] lg:w-[300px] lg:h-[430px] rounded-xl overflow-hidden shadow-2xl border-4 border-white/85 ring-1 ring-gold/20 z-10 card-hover img-zoom animate-fade-in">
                 <Image
-                  src="/images/product_6.webp"
+                  src="/images/product_16.webp"
                   alt="Traditional Odia Saree Masterpiece"
                   fill
                   className="object-cover object-top"
@@ -324,7 +324,7 @@ export default function HomePage() {
               {/* Overlay Saree Model Frame (Bottom-Left, overlapping into main) */}
               <Parallax speed={0.07} className="absolute left-[5%] sm:left-4 bottom-2 sm:bottom-4 w-[45%] sm:w-[180px] h-[250px] sm:h-[260px] md:w-[220px] md:h-[310px] lg:w-[240px] lg:h-[340px] rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gold/30 z-20 card-hover img-zoom animate-fade-in">
                 <Image
-                  src="/images/product_7.webp"
+                  src="/images/product_19.webp"
                   alt="Elegant Traditional Silk Details"
                   fill
                   className="object-cover object-top"

@@ -12,51 +12,11 @@ export interface Product {
 
 export const products: Product[] = [
   // SAREES
-  {
-    id: "PHG-SAR-001",
-    title: "Sambalpuri Silk Ikat Saree",
-    cluster: "Bargarh District",
-    image: "/images/product_6.webp",
-    desc: "Beautiful double-ikat silk saree featuring traditional geometric patterns. Hand-dyed using natural colors before weaving.",
-    spec: "Pure Silk • 5.5 Meters • Matching borders",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-002",
-    title: "Bomkai Cotton & Silk Saree",
-    cluster: "Ganjam District",
-    image: "/images/product_9.webp",
-    desc: "Distinct thread work detailing traditional borders and pallu patterns inspired by local folklore.",
-    spec: "Silk-Cotton Blend • Handwoven quality",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-003",
-    title: "Patachitra Painted Saree",
-    cluster: "Raghurajpur Village",
-    image: "/images/product_8.webp",
-    desc: "Traditional mythological stories hand-painted onto pure tussar silk using natural colors.",
-    spec: "Pure Tussar Silk • Hand-Painted art",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-004",
-    title: "Nuapatna Gita Govinda Saree",
-    cluster: "Nuapatna Village",
-    image: "/images/product_12.webp",
-    desc: "Traditional silk saree woven with sacred verses from the Gita Govinda, used for temple rituals in Puri.",
-    spec: "Mulberry Silk • Natural Yellow Dyes",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-005",
-    title: "Traditional Sonpur Silk Saree",
-    cluster: "Sonpur District",
-    image: "/images/product_1.webp",
-    desc: "Classic wedding-weight Odia silk. Renowned for its rich border contrast and structured temple patterns.",
-    spec: "Pure Silk • Elegant Gold borders",
-    category: "sarees",
-  },
+  
+  
+  
+  
+  
   {
     id: "PHG-SAR-006",
     title: "Kotpad Organic Cotton Saree",
@@ -67,24 +27,8 @@ export const products: Product[] = [
     category: "sarees",
   },
 
-  {
-    id: "PHG-SAR-007",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0001_model1_1784355948653.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-008",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0003_model2_1784356012950.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-009",
     title: "Exclusive Handloom Saree",
@@ -103,24 +47,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-011",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0013_model1_1784201397577.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-012",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0015_model2_1784201418606.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-013",
     title: "Exclusive Handloom Saree",
@@ -139,24 +67,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-015",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0021_model1_1784201476761.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-016",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0022_model2_1784201497100.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-017",
     title: "Exclusive Handloom Saree",
@@ -175,24 +87,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-019",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0030_model1_1784356154117.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-020",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0032_model2_1784356199733.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-021",
     title: "Exclusive Handloom Saree",
@@ -211,24 +107,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-023",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0040_model1_1784356415850.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-024",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0042_model2_1784356450159.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-025",
     title: "Exclusive Handloom Saree",
@@ -247,24 +127,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-027",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0049_model1_1784356837500.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-028",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0053_model2_1784356907964.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-029",
     title: "Exclusive Handloom Saree",
@@ -283,24 +147,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-031",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0063_model1_1784485681776.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-032",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0064_model2_1784485701350.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-033",
     title: "Exclusive Handloom Saree",
@@ -319,24 +167,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-035",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0076_model1_1784485781156.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-036",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0081_model2_1784485801104.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-037",
     title: "Exclusive Handloom Saree",
@@ -355,24 +187,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-039",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0091_model1_1784485892157.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-040",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0103_model2_1784485915341.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-041",
     title: "Exclusive Handloom Saree",
@@ -391,24 +207,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-043",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0111_model1_1784533713676.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-044",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0113_model2_1784533733744.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-045",
     title: "Exclusive Handloom Saree",
@@ -427,24 +227,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-047",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0119_model1_1784533808075.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-048",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0121_model2_1784533833995.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-049",
     title: "Exclusive Handloom Saree",
@@ -463,24 +247,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-051",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0129_model1_1784533989299.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-052",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0131_model2_1784534009803.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-053",
     title: "Exclusive Handloom Saree",
@@ -499,24 +267,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-055",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0137_model1_1784564471257.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-056",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0139_model2_1784564491781.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-057",
     title: "Exclusive Handloom Saree",
@@ -535,24 +287,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-059",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0145_model1_1784564548635.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-060",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0149_model2_1784564587419.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-061",
     title: "Exclusive Handloom Saree",
@@ -571,24 +307,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-063",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0157_model1_1784564648130.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-064",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0159_model2_1785046344716.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-065",
     title: "Exclusive Handloom Saree",
@@ -607,24 +327,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-067",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0169_model1_1785076232001.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-068",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0171_model2_1785047147121.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-069",
     title: "Exclusive Handloom Saree",
@@ -643,24 +347,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-071",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0177_model1_1785076273251.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-072",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0179_model2_1785076297056.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-073",
     title: "Exclusive Handloom Saree",
@@ -679,24 +367,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-075",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0185_model1_1785076378786.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-076",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0187_model2_1785076403784.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-077",
     title: "Exclusive Handloom Saree",
@@ -715,24 +387,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-079",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0193_model1_1785076482014.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-080",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0195_model2_1785076504876.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-081",
     title: "Exclusive Handloom Saree",
@@ -751,24 +407,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-083",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0206_model1.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-084",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0210_model2.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-085",
     title: "Exclusive Handloom Saree",
@@ -787,24 +427,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-087",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0226_model1.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-088",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/img_0230_model2.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-089",
     title: "Exclusive Handloom Saree",
@@ -822,24 +446,8 @@ export const products: Product[] = [
     desc: "Authentic handwoven saree directly from the master weavers.",
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
-  },  {
-    id: "PHG-SAR-091",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0001_model1_1785824015446.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-092",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0002_model2_1785824037811.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  },  
+  
   {
     id: "PHG-SAR-093",
     title: "Exclusive Handloom Saree",
@@ -858,24 +466,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-095",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0005_model1_1785824079740.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-096",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0006_model2_1785824096732.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-097",
     title: "Exclusive Handloom Saree",
@@ -894,24 +486,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-099",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0009_model1_1785824166617.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-100",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0010_model2_1785824180725.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-101",
     title: "Exclusive Handloom Saree",
@@ -930,24 +506,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-103",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0013_model1_1785824226521.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-104",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0014_model2_1785842347002.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-105",
     title: "Exclusive Handloom Saree",
@@ -966,24 +526,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-107",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0017_model1_1785842388447.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-108",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0018_model2_1785842402075.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-109",
     title: "Exclusive Handloom Saree",
@@ -1002,24 +546,8 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-111",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0021_model1_1785842468021.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-112",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0022_model2_1785842483632.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
   {
     id: "PHG-SAR-113",
     title: "Exclusive Handloom Saree",
@@ -1038,35 +566,11 @@ export const products: Product[] = [
     spec: "Pure Handloom • Exclusive Design",
     category: "sarees",
   },
-  {
-    id: "PHG-SAR-115",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0025_model1_1785842548595.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
-  {
-    id: "PHG-SAR-116",
-    title: "Exclusive Handloom Saree",
-    cluster: "Odisha Handloom",
-    image: "/Model_Shots/batch2_img_0026_model2_1785842559433.webp",
-    desc: "Authentic handwoven saree directly from the master weavers.",
-    spec: "Pure Handloom • Exclusive Design",
-    category: "sarees",
-  },
+  
+  
 
   // DRESSES
-  {
-    id: "PHG-DRS-001",
-    title: "Nuapatna Woven Dress Material",
-    cluster: "Nuapatna Village",
-    image: "/images/product_3.webp",
-    desc: "Three-piece unstitched set with beautiful handwoven patterns. Comes with matching dupattas and bottom panels.",
-    spec: "Top (2.5m), Bottom (2m), Dupatta (2.2m) • Soft Cotton",
-    category: "dresses",
-  },
+  
   {
     id: "PHG-DRS-002",
     title: "Sambalpuri Cotton Dress Set",
@@ -1076,26 +580,10 @@ export const products: Product[] = [
     spec: "100% Cotton • Natural dye accents • Long-lasting quality",
     category: "dresses",
   },
-  {
-    id: "PHG-DRS-003",
-    title: "Khandua Silk Dress Set",
-    cluster: "Nuapatna Cooperatives",
-    image: "/images/product_21.webp",
-    desc: "Beautiful unstitched dress set featuring traditional borders on soft, shiny mulberry silk.",
-    spec: "Pure Silk • High-quality weave • Zari borders",
-    category: "dresses",
-  },
+  
 
   // KURTIS
-  {
-    id: "PHG-KRT-001",
-    title: "Maniabandha Ikat Kurti",
-    cluster: "Maniabandha Village",
-    image: "/images/product_4.webp",
-    desc: "Beautiful handwoven cotton kurti featuring traditional floral borders and fish-scale designs.",
-    spec: "Handloom Cotton • Comfortable fit",
-    category: "kurtis",
-  },
+  
   {
     id: "PHG-KRT-002",
     title: "Hand-Block Printed Kurti",
@@ -1114,35 +602,11 @@ export const products: Product[] = [
     spec: "Cotton-Silk Blend • Traditional Weave",
     category: "kurtis",
   },
-  {
-    id: "PHG-KRT-004",
-    title: "Sambalpuri Stripe Weave Kurti",
-    cluster: "Bargarh District",
-    image: "/images/product_17.webp",
-    desc: "Simple, elegant kurti with handwoven stripes and subtle borders.",
-    spec: "100% Cotton • Soft & Breathable",
-    category: "kurtis",
-  },
+  
 
   // SCARVES
-  {
-    id: "PHG-SCF-001",
-    title: "Ganjam Silk Stole",
-    cluster: "Ganjam District",
-    image: "/images/product_2.webp",
-    desc: "Delicate, lightweight handloom silk dupatta with subtle gold highlights along borders. A beautiful gift or traditional accessory.",
-    spec: "100% Ganjam Silk • 2.2 Meters • Soft fabric",
-    category: "scarves",
-  },
-  {
-    id: "PHG-SCF-002",
-    title: "Handwoven Cotton Ikat Scarf",
-    cluster: "Bargarh District",
-    image: "/images/product_15.webp",
-    desc: "Comfortable cotton stole with traditional patterns. Soft, durable, and highly breathable, perfect for warm weather.",
-    spec: "Pure Cotton • 1.8 Meters • Handwoven",
-    category: "scarves",
-  },
+  
+  
   {
     id: "PHG-SCF-003",
     title: "Jodo & Temple Calligraphy Stole",
@@ -1154,16 +618,7 @@ export const products: Product[] = [
   },
 
   // BED COVERS
-  {
-    id: "PHG-COV-001",
-    title: "Kotpad Heavy Cotton Bed Cover",
-    cluster: "Koraput District",
-    image: "/images/product_5.webp",
-    desc: "Thick, comfortable organic cotton dyed using natural roots. Highly durable handwoven texture with traditional borders.",
-    sizes: "Single (60\" x 90\"), Double (90\" x 108\")",
-    composition: "100% Organic Cotton • Natural Dyes",
-    category: "bed-covers",
-  },
+  
   {
     id: "PHG-COV-002",
     title: "Sambalpuri Ikat Bed Cover",

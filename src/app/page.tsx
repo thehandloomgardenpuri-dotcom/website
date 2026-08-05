@@ -704,7 +704,7 @@ export default function HomePage() {
       {/* SECTION 8: NEWSLETTER / CTA BAR */}
       {/* ============================================ */}
       <section className="py-4 sm:py-6 px-4 sm:px-6 md:px-12 bg-maroon">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
           {/* Left — Logo + Text */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <Link href="/" className="flex items-center gap-3 shrink-0 group">
@@ -738,11 +738,11 @@ export default function HomePage() {
           </div>
 
           {/* Right — Phone + Submit */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto shrink-1 min-w-0">
             <input
               type="tel"
               placeholder="Enter your phone number"
-              className="newsletter-input flex-1 md:flex-none rounded-sm font-sans"
+              className="newsletter-input flex-1 w-full sm:w-auto min-w-0 rounded-sm font-sans"
               pattern="[0-9]{10}"
               maxLength={15}
             />

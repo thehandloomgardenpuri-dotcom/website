@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+/*
+ * Handloom Garden design system
+ * ─────────────────────────────
+ * Brand colours are kept from the original identity (maroon, gold, cream,
+ * charcoal, forest). Shape rule: images are sharp-cornered or arch-topped
+ * (the Swargadwar "gate" motif); buttons and chips are full pills; inputs
+ * are square with a bottom rule. Z-index scale: header 50, whatsapp 40,
+ * lightbox 80, menu 70, grain 60, page-transition 95, preloader 100.
+ */
+
+/* Always the brand cream (#FDF8F0, as on the original site), regardless of the device's dark mode. */
+:root {
+  --c-bg: #fdf8f0;
+  --c-bg-2: #f5ede0;
+  --c-ink: #1c1a17;
+  --c-ink-2: #4d463f;
+  --c-line: rgb(28 26 23 / 0.14);
+  --c-accent: #8b1a2b;
+  --c-gold-ink: #86671b;
+  --c-card: #fffaf2;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-display: "Zodiak", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-odia: var(--font-oriya), serif;
+
+  --color-bg: var(--c-bg);
+  --color-bg-2: var(--c-bg-2);
+  --color-ink: var(--c-ink);
+  --color-ink-2: var(--c-ink-2);
+  --color-line: var(--c-line);
+  --color-accent: var(--c-accent);
+  --color-gold-ink: var(--c-gold-ink);
+  --color-card: var(--c-card);
+
+  /* Fixed brand colours (identical in both themes) */
+  --color-maroon: #8b1a2b;
+  --color-maroon-dark: #6e1422;
+  --color-maroon-deep: #3d0b14;
+  --color-gold: #c9a84c;
+  --color-gold-light: #e3cd8b;
+  --color-cream: #fdf8f0;
+  --color-cream-dark: #f5ede0;
+  --color-charcoal: #1c1a17;
+  --color-forest: #1a2e1a;
+
+  --ease-silk: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #8b1a2b;
+  color: #fdf8f0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* ── Lenis smooth scroll ─────────────────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ── Type ────────────────────────────────────────────────────────────── */
+/* Zodiak (ITF): sturdy strokes that stay legible on phones and at a distance. */
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.4vw, 5.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.9vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.65rem, 2.5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Italic emphasis inside display headlines: same family, gold/maroon ink. */
+.display-xl em,
+.display-lg em,
+.display-md em {
+  font-style: italic;
+  color: var(--c-accent);
+  padding-bottom: 0.08em;
+}
+.on-dark .display-xl em,
+.on-dark .display-lg em,
+.on-dark .display-md em {
+  color: #e3cd8b;
+}
+
+.prose-hg p + p {
+  margin-top: 1.1em;
+}
+
+/* ── Buttons (pill) ──────────────────────────────────────────────────── */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 0.95rem 1.6rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.35s var(--ease-silk),
+    color 0.35s var(--ease-silk),
+    border-color 0.35s var(--ease-silk),
+    transform 0.2s var(--ease-silk);
+  &:active {
+    transform: translateY(1px) scale(0.985);
+  }
+}
+
+@utility btn-primary {
+  background: #8b1a2b;
+  color: #fdf8f0;
+  border: 1px solid #8b1a2b;
+  &:hover {
+    background: #6e1422;
+    border-color: #6e1422;
+  }
+}
+
+@utility btn-gold {
+  background: #c9a84c;
+  color: #1c1a17;
+  border: 1px solid #c9a84c;
+  &:hover {
+    background: #e3cd8b;
+    border-color: #e3cd8b;
+  }
+}
+
+@utility btn-ghost {
+  background: transparent;
+  color: currentColor;
+  border: 1px solid currentColor;
+  &:hover {
+    background: color-mix(in srgb, currentColor 10%, transparent);
+  }
+}
+
+/* ── Motifs ──────────────────────────────────────────────────────────── */
+/* Kumbha: the temple-spire border woven into Bomkai and Sambalpuri sarees. */
+@utility kumbha {
+  height: 10px;
+  background: conic-gradient(from 135deg at 50% 0, currentColor 90deg, transparent 0) 0 0 / 20px 100% repeat-x;
+}
+
+/* Swargadwar ("gate of heaven") arch used to frame hero imagery. */
+@utility arch {
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+}
+
+/* Ikat diamond lattice, for tiles that have no photograph. */
+@utility ikat-lattice {
+  background-color: #6e1422;
+  background-image:
+    linear-gradient(45deg, rgb(201 168 76 / 0.28) 25%, transparent 25%, transparent 75%, rgb(201 168 76 / 0.28) 75%),
+    linear-gradient(-45deg, rgb(201 168 76 / 0.28) 25%, transparent 25%, transparent 75%, rgb(201 168 76 / 0.28) 75%);
+  background-size: 28px 28px;
+}
+
+@utility pasapalli {
+  background-color: #1a2e1a;
+  background-image: conic-gradient(#c9a84c 25%, transparent 0 50%, #c9a84c 0 75%, transparent 0);
+  background-size: 44px 44px;
+  background-blend-mode: soft-light;
+}
+
+/* Film grain on a fixed, non-interactive layer (never on scrolling content). */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Preloader ───────────────────────────────────────────────────────── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+html.pre-skip .preloader {
+  display: none;
+}
+/* Hero content waits for the preloader so the intro plays once, in sequence. */
+html:not(.pre-done) [data-hero-intro] {
+  visibility: hidden;
+}
+
+/* ── Marquee ─────────────────────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ── FAQ disclosure ──────────────────────────────────────────────────── */
+details.faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.faq summary::-webkit-details-marker {
+  display: none;
+}
+details.faq .faq-icon {
+  transition: transform 0.45s var(--ease-silk);
+}
+details.faq[open] .faq-icon {
+  transform: rotate(45deg);
+}
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  details.faq::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size 0.5s var(--ease-silk),
+      content-visibility 0.5s allow-discrete;
+  }
+  details.faq[open]::details-content {
+    block-size: auto;
+  }
+}
+
+/* Hide scrollbars on horizontal chip rails while keeping them scrollable. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

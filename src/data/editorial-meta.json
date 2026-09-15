@@ -1,0 +1,44 @@
+{
+  "bed-covers": {
+    "path": "editorial/bed-covers.webp",
+    "width": 900,
+    "height": 1200,
+    "blur": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoMABAAA4BaJYgCdACerXZLgAD+6F+n8To6uTWZqsUd8eLaPSNIW7pW4iY7dbMNQAA=",
+    "from": "PHG-PRM-018"
+  },
+  "dress-materials": {
+    "path": "editorial/dress-materials.webp",
+    "width": 900,
+    "height": 1200,
+    "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoMABAAA4BaJbACdAYwxlHoGuDtQAD+Z8pQZxXY7vxt4eLPZ9eNk1eiUsw4mxBuoVvXrI1ZowHxwUpX4wfwZHoacsNb7L0P1hCsFk758O++ydHpRn0Gh+60cgAAAA==",
+    "from": "PHG-PRM-028"
+  },
+  "jodo-scarves": {
+    "path": "editorial/jodo-scarves.webp",
+    "width": 900,
+    "height": 1201,
+    "blur": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMABAAA4BaJbACdAD0Pt5SXoAA/hlEE0nW+TWbow5X8qrQuiSH+wmEo7vJCRzLbfhZpf2jzJ/fo16AAAA=",
+    "from": "PHG-PRM-005"
+  },
+  "kotpad-texture": {
+    "path": "editorial/kotpad-texture.webp",
+    "width": 900,
+    "height": 1201,
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoMABAAA4BaJZACdAYvNbZawlV7oAD+6hCT5Yyhs8Zp2XPef3x+jRJCaAEtJtlQCXF0rr7PW7T9mxJB4Kh31ksdbd2FvVipmXTJ40N6g5uv5M0plg7d5ogAAAA=",
+    "from": "PHG-SAR-070"
+  },
+  "loom-detail": {
+    "path": "editorial/loom-detail.webp",
+    "width": 900,
+    "height": 1200,
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoMABAAA4BaJbACdADdc18fM+rgAAD5eahy1RZFSXmi7pTTccvFAScgpjNnzmBrCNtyJDiKmd+9J2Hqqnr8bvyqJFKOfr+l90JIAA==",
+    "from": "PHG-PRM-031"
+  },
+  "sambalpuri-detail": {
+    "path": "editorial/sambalpuri-detail.webp",
+    "width": 900,
+    "height": 1200,
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMABAAA4BaJbACdACpaxEeOt4AAP7lLNBHj1RxfbDwtNRnx9BCI2Xb1q+9HVVOwh/TGnOAXO3ukkpQSREKKSJCNcHzdQXOmB7sWPiltTeSvcAA",
+    "from": "PHG-PRM-003"
+  }
+}

@@ -1,8 +1,8 @@
-import { sitemapIndex, xmlResponse } from "@/lib/sitemap";
+import { allEntries, urlset, xmlResponse } from "@/lib/sitemap";
 
 export const revalidate = 3600;
 
-/** Sitemap index: points search engines at the per-type sitemaps under /sitemaps/. */
+/** Flat sitemap: every page, guide, saree, kurti and frock, with images and last-edited dates. */
 export async function GET() {
-  return xmlResponse(await sitemapIndex());
+  return xmlResponse(urlset(await allEntries()));
 }

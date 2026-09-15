@@ -4,8 +4,8 @@ import { WEAVE_GUIDES } from "@/data/weaves";
 import { BRAND_IMAGES, SITE_URL } from "./site";
 
 /**
- * Sitemap index + child sitemaps. Splitting by content type makes Search Console
- * report indexing per group (for example, every saree in sarees.xml).
+ * One flat sitemap listing every URL on the site (pages, guides, every saree,
+ * kurtis and frocks), with product images and real last-edited dates.
  */
 
 interface Entry {
@@ -16,8 +16,8 @@ interface Entry {
   images?: string[];
 }
 
-export const CHILD_SITEMAPS = ["pages.xml", "sarees.xml", "kurtis-and-frocks.xml", "guides.xml"] as const;
-export type ChildSitemap = (typeof CHILD_SITEMAPS)[number];
+const GROUPS = ["pages", "guides", "sarees", "kurtis-and-frocks"] as const;
+type Group = (typeof GROUPS)[number];
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const day = (d?: string | null) => (d ? new Date(d) : new Date()).toISOString();
@@ -51,12 +51,11 @@ const productEntry = (p: Product): Entry => ({
   images: [p.image],
 });
 
-export async function buildChild(name: ChildSitemap): Promise<Entry[]> {
-  const products = await getAllProducts();
+async function buildGroup(name: Group, products: Product[]): Promise<Entry[]> {
   const latest = newest(products);
 
   switch (name) {
-    case "pages.xml":
+    case "pages":
       return [
         { path: "/", lastmod: latest, changefreq: "weekly", priority: 1, images: [BRAND_IMAGES.showroom] },
         { path: "/collections", lastmod: latest, changefreq: "weekly", priority: 0.9 },
@@ -75,11 +74,11 @@ export async function buildChild(name: ChildSitemap): Promise<Entry[]> {
         { path: "/faq", changefreq: "monthly", priority: 0.7 },
         { path: "/site-map", changefreq: "weekly", priority: 0.4 },
       ];
-    case "sarees.xml":
+    case "sarees":
       return products.filter((p) => p.category === "sarees").map(productEntry);
-    case "kurtis-and-frocks.xml":
+    case "kurtis-and-frocks":
       return products.filter((p) => p.category !== "sarees").map(productEntry);
-    case "guides.xml":
+    case "guides":
       return [
         { path: "/weaves", changefreq: "monthly", priority: 0.8 },
         ...WEAVE_GUIDES.map((g) => {
@@ -91,10 +90,9 @@ export async function buildChild(name: ChildSitemap): Promise<Entry[]> {
   }
 }
 
-export async function sitemapIndex() {
-  const latest = newest(await getAllProducts());
-  const items = CHILD_SITEMAPS.map(
-    (name) => `  <sitemap>\n    <loc>${SITE_URL}/sitemaps/${name}</loc>\n    <lastmod>${day(latest)}</lastmod>\n  </sitemap>`,
-  ).join("\n");
-  return `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</sitemapindex>\n`;
+/** Every URL on the site, in one list. */
+export async function allEntries(): Promise<Entry[]> {
+  const products = await getAllProducts();
+  const groups = await Promise.all(GROUPS.map((g) => buildGroup(g, products)));
+  return groups.flat();
 }

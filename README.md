@@ -60,6 +60,6 @@ npm run bones        # captures src/bones/*.bones.json and registry.ts
 - Keyword map (place + product + intent + regional language): `src/lib/seo.ts`
 - Structured data (ClothingStore/LocalBusiness, Product, FAQPage, Article, BreadcrumbList, ItemList): `src/lib/schema.ts`
 - Answer-first FAQs and weave guides: `src/data/faqs.ts`, `src/data/weaves.ts`
-- `/sitemap.xml` is a sitemap index pointing to `/sitemaps/pages.xml`, `/sitemaps/sarees.xml` (every saree), `/sitemaps/kurtis-and-frocks.xml` and `/sitemaps/guides.xml`. Product entries include the image and the real last-edited date (a database trigger keeps `products.updated_at` current).
+- `/sitemap.xml` lists every URL on the site in one file (pages, guides, every saree, kurtis and frocks), with product images and real last-edited dates (a database trigger keeps `products.updated_at` current).
 - `/site-map` is a human-readable page linking every saree and page
 - `robots.txt` (explicitly allows AI crawlers) and `llms.txt` for AI assistants

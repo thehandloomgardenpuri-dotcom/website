@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { CATEGORIES } from "@/data/taxonomy";
@@ -89,6 +90,28 @@ export default function Footer() {
         <div className="mt-14 flex flex-col gap-2 border-t border-cream/15 pt-6 text-xs text-cream/60 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} Handloom Garden, Puri. All rights reserved.</p>
           <p>Silk Mark certified handloom showroom since {SITE.foundingYear}.</p>
+        </div>
+
+        <div className="mt-8 flex justify-center border-t border-cream/10 pt-8">
+          <a
+            href="https://www.crayoratech.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Designed and developed by Crayora"
+            className="crayora-credit group flex flex-col items-center gap-3 text-center sm:flex-row sm:gap-4"
+          >
+            <span className="text-xs tracking-[0.18em] text-cream/55 transition-colors duration-500 group-hover:text-cream/80">
+              Designed and developed by
+            </span>
+            <Image
+              src="/brand/crayora.webp"
+              alt="Crayora"
+              width={640}
+              height={171}
+              sizes="132px"
+              className="crayora-mark h-[26px] w-auto sm:h-[30px]"
+            />
+          </a>
         </div>
       </div>
     </footer>

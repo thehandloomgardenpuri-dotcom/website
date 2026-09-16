@@ -254,6 +254,35 @@ html:not(.pre-done) [data-hero-intro] {
   visibility: hidden;
 }
 
+/* ── Developer credit ────────────────────────────────────────────────── */
+/* Crayora's violet glow, breathing slowly and lifting on hover. */
+@keyframes crayora-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgb(93 79 255 / 0.35)) drop-shadow(0 0 12px rgb(93 79 255 / 0.18));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgb(93 79 255 / 0.65)) drop-shadow(0 0 22px rgb(93 79 255 / 0.35));
+  }
+}
+
+.crayora-mark {
+  animation: crayora-glow 3.6s ease-in-out infinite;
+  transition: transform 0.5s var(--ease-silk);
+}
+
+.crayora-credit:hover .crayora-mark {
+  transform: translateY(-1px) scale(1.04);
+  animation-duration: 1.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crayora-mark {
+    animation: none;
+    filter: drop-shadow(0 0 6px rgb(93 79 255 / 0.45));
+  }
+}
+
 /* ── Marquee ─────────────────────────────────────────────────────────── */
 .marquee-track {
   display: flex;
